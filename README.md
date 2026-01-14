@@ -1,3 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artistry - Contemporary Art Gallery</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+    }
+
+    body {
+      font-family: var(--font-body);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-2xl tracking-wide">ARTISTRY</h1>
+
+      <nav class="space-x-8 text-sm font-medium">
+        <a href="#" class="hover:text-black text-gray-600">Gallery</a>
+        <a href="#" class="hover:text-black text-gray-600">About</a>
+        <a href="#" class="hover:text-black text-gray-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-5xl mb-6">Contemporary Art Gallery</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Discover curated contemporary artworks from emerging and established artists around the world.
+    </p>
+  </section>
+
+</body>
+</html>
 # Petersons-spec.github.io
 <!DOCTYPE html>
 <html lang="en">
