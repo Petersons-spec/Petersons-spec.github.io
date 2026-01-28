@@ -1,135 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starry Homepage</title>
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        background: black;
-        font-family: Arial, sans-serif;
-        color: white;
-        text-align: center;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starry Homepage</title>
+<style>
+  /* Base styles */
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+  }
 
-      /* Canvas layer */
-      #stars {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0; /* background */
-      }
+  /* Canvas layer */
+  #stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
 
-      /* Main content */
-      #content {
-        position: relative;
-        z-index: 1; /* above canvas */
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 50px 20px;
-      }
+  /* Main content */
+  #content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10vh 20px; /* responsive top/bottom padding */
+  }
 
-      a.button {
-        display: inline-block;
-        padding: 12px 25px;
-        background-color: orange;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 8px;
-        font-size: 18px;
-        width: 80%;
-        max-width: 300px;
-        box-sizing: border-box;
-        margin: 10px 0;
-      }
+  /* Heading */
+  h1 {
+    font-size: 3vw; /* scales with screen width */
+    min-font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 20px auto;
-      }
+  /* Button */
+  a.button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 4vw; /* scales with screen width */
+    max-font-size: 18px;
+    width: 70%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    transition: background 0.3s;
+  }
 
-      footer {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        font-size: 14px;
-        color: white;
-        font-weight: bold;
-        z-index: 2; /* always on top */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Starry background -->
-    <canvas id="stars"></canvas>
+  a.button:hover {
+    background-color: #ff9900; /* brighter orange on hover */
+  }
 
-    <!-- Main content -->
-    <div id="content">
-      <h1>Welcome</h1>
+  /* Image */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
 
-      <p>
-        <a href="https://en.wikipedia.org/wiki/Black_cat" target="_blank" class="button">
-          More here
-        </a>
-      </p>
+  /* Footer */
+  footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 2vw;
+    min-font-size: 12px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+  }
 
-      <img src="hd_wallpaper_21885.jpg" alt="Wallpaper">
-    </div>
+  /* Small screens adjustments */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 6vw;
+    }
+    a.button {
+      font-size: 5vw;
+      width: 90%;
+    }
+    footer {
+      font-size: 3vw;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Starry background -->
+  <canvas id="stars"></canvas>
 
-    <!-- Footer -->
-    <footer>
+  <!-- Main content -->
+  <div id="content">
+    <h1>Welcome</h1>
+
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Black_cat" target="_blank" class="button">
+        More here
+      </a>
+    </p>
+
+    <img src="hd_wallpaper_21885.jpg" alt="Wallpaper">
+  </div>
+
+  <!-- Footer -->
+  <footer>
     &copy; <span id="year"></span> Yamatai
-    </footer> 
+  </footer>
 
-    <script>
-      // Current year
-      document.getElementById('year').textContent = new Date().getFullYear();
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Stars animation
-      const canvas = document.getElementById('stars');
-      const ctx = canvas.getContext('2d');
+    // Stars animation
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = [];
+    const numStars = 200;
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        alpha: Math.random()
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+        ctx.fill();
+        s.alpha += (Math.random() - 0.5) * 0.05;
+        if (s.alpha < 0) s.alpha = 0;
+        if (s.alpha > 1) s.alpha = 1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-
-      const stars = [];
-      const numStars = 200;
-
-      for (let i = 0; i < numStars; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5,
-          alpha: Math.random()
-        });
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        stars.forEach(s => {
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
-          ctx.fill();
-          s.alpha += (Math.random() - 0.5) * 0.05;
-          if (s.alpha < 0) s.alpha = 0;
-          if (s.alpha > 1) s.alpha = 1;
-        });
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
