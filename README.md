@@ -1,9 +1,9 @@
 <!DOCTYPE html> 
 <html>
-  <body>
+  <body style="background-color:blue;">
     <h1>Welcome to Page</h1>
     <p> <b>Welcome here</b> </p>
-    <img scr="https://github.com/Petersons-spec/Petersons spec.github.io/blob/main/hd_wallpaper_21885.jpg"
+    <img src="<img src="hd_wallpaper_21885.jpg" alt="Wallpaper">
   
       
       
