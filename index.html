@@ -4,7 +4,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Page</title>
   </head>
-  <body style="background-color: #ADD8E6; text-align: center; padding: 20px;">
+  <body style="margin:0; overflow:hidden; background:black;">
+  <canvas id="stars"></canvas>
+
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = [];
+    const numStars = 200;
+
+    for(let i=0;i<numStars;i++){
+      stars.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.5,
+        alpha: Math.random()
+      });
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s=>{
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+        ctx.fill();
+        s.alpha += (Math.random()-0.5)*0.05;
+        if(s.alpha<0) s.alpha=0;
+        if(s.alpha>1) s.alpha=1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+    window.addEventListener('resize',()=>{
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
     
     <div style="max-width: 800px; margin: auto;">
       <h1>Welcome to Page</h1>
