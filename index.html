@@ -1,104 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Page</title>
+    <title>Starry Homepage</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+      }
+
+      #content {
+        position: relative; /* above the canvas */
+        z-index: 1;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      a.button {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #2563eb;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        font-size: 18px;
+        width: 80%;
+        max-width: 300px;
+        box-sizing: border-box;
+        margin: 10px 0;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 14px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        z-index: 2;
+      }
+
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+    </style>
   </head>
-  <body style="margin:0; overflow:hidden; background:black;">
-  <canvas id="stars"></canvas>
 
-  <script>
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  <body>
+    <canvas id="stars"></canvas>
 
-    const stars = [];
-    const numStars = 200;
-
-    for(let i=0;i<numStars;i++){
-      stars.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*1.5,
-        alpha: Math.random()
-      });
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      stars.forEach(s=>{
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
-        ctx.fill();
-        s.alpha += (Math.random()-0.5)*0.05;
-        if(s.alpha<0) s.alpha=0;
-        if(s.alpha>1) s.alpha=1;
-      });
-      requestAnimationFrame(draw);
-    }
-
-    draw();
-    window.addEventListener('resize',()=>{
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-</body>
-    
-    <div style="max-width: 800px; margin: auto;">
+    <div id="content">
       <h1>Welcome to Page</h1>
-      
+
       <p>
-        <a href="https://en.wikipedia.org/wiki/Black_cat" target="_blank" 
-           style="
-             display: inline-block;
-             padding: 12px 25px;
-             background-color: #2563eb;
-             color: white;
-             text-decoration: none;
-             font-weight: bold;
-             border-radius: 8px;
-             font-size: 18px;
-             width: 80%;
-             max-width: 300px;
-             box-sizing: border-box;
-           ">
+        <a href="https://en.wikipedia.org/wiki/Black_cat" target="_blank" class="button">
           Welcome here
         </a>
       </p>
-      
-      <img src="hd_wallpaper_21885.jpg" alt="Wallpaper" 
-           style="max-width: 100%; height: auto; display: block; margin: auto;">
-    </div>
-    
-    <!-- Footer -->
-    <footer style="
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 14px;
-      color: black;
-      text-transform: uppercase;
-      font-weight: bold;
-    ">
-      &copy; <span id="year"></span> Yamatai
-    </footer>
 
-    <script>
-      // Set current year dynamically
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    
-  </body>
-</html>
+      <img src="hd_wall_
 
-  
-  
-
-  
-  
-  
-  
-</html>
