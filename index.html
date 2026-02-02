@@ -15,6 +15,7 @@
       color: #000;
       font-family: 'Playfair Display', serif;
       text-align: center;
+      position: relative; /* needed for footer positioning */
     }
 
     /* Menu button */
@@ -56,15 +57,17 @@
       color: #d4af37;
     }
 
-    /* Titles */
-    h1 {
-      font-size: 64px;
-      margin: 80px 0 20px;
-      letter-spacing: 4px;
+    /* Main Title */
+    h1.title {
+      font-size: 120px;        /* big and bold */
+      letter-spacing: 6px;     
+      margin: 100px 0 20px;
       text-transform: uppercase;
+      color: #000;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
-    h2 {
+    h2.subtitle {
       font-size: 22px;
       margin: 0 0 40px;
       letter-spacing: 3px;
@@ -94,7 +97,9 @@
 
     /* Footer */
     footer {
-      margin: 40px 0 30px;
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
       font-size: 14px;
       letter-spacing: 2px;
       opacity: 0.6;
@@ -110,6 +115,18 @@
       .gallery img {
         width: 90%;
         max-width: 400px;
+      }
+
+      h1.title {
+        font-size: 80px;
+      }
+
+      h2.subtitle {
+        font-size: 18px;
+      }
+
+      footer {
+        font-size: 12px;
       }
     }
   </style>
@@ -128,8 +145,8 @@
   </nav>
 
   <!-- Main Title -->
-  <h1>F&amp;S</h1>
-  <h2>Choose your style</h2>
+  <h1 class="title">F&amp;S</h1>
+  <h2 class="subtitle">Choose your style</h2>
 
   <!-- Image Gallery -->
   <div class="gallery">
