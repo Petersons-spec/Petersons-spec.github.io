@@ -4,18 +4,53 @@
   <meta charset="UTF-8">
   <title>F&S Homepage</title>
 
-  <!-- Google Fonts: Great Vibes for F&S -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
-      color: #000;
       font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
       text-align: center;
-      position: relative; /* for footer */
+    }
+
+    /* ===== Stylish Banner / Hero ===== */
+    .banner {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(247,230,230,0.6), rgba(244,209,209,0.8)),
+        url("banner.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .banner-btn {
+      margin-top: 30px;
+      padding: 14px 36px;
+      border-radius: 40px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 3px;
+      transition: all 0.4s ease;
+    }
+
+    .banner-btn:hover {
+      background: #d4af37;
+      color: black;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Menu button */
@@ -26,7 +61,6 @@
       font-size: 26px;
       background: none;
       border: none;
-      color: black; /* black icon on white menu */
       cursor: pointer;
       z-index: 100;
     }
@@ -36,22 +70,19 @@
       position: fixed;
       top: 60px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.95);
       padding: 15px 20px;
       border-radius: 12px;
       display: none;
-      text-align: left;
       width: 180px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     #menu a {
       display: block;
-      color: #000;
+      color: black;
       text-decoration: none;
       margin: 10px 0;
-      font-size: 16px;
       letter-spacing: 1px;
     }
 
@@ -59,24 +90,19 @@
       color: #d4af37;
     }
 
-    /* Main Title */
+    /* Titles */
     h1.title {
       font-family: 'Great Vibes', cursive;
-      font-weight: 400;
       font-size: 140px;
-      letter-spacing: 6px;
-      margin: 100px 0 20px;
-      text-transform: none;
-      color: #000;
+      margin: 0 0 20px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
     h2.subtitle {
-      font-family: 'Playfair Display', serif;
       font-size: 22px;
-      margin: 0 0 40px;
       letter-spacing: 3px;
       opacity: 0.8;
+      margin: 0;
       text-transform: uppercase;
     }
 
@@ -91,28 +117,23 @@
 
     .gallery img {
       width: 280px;
-      height: auto;
       border-radius: 16px;
-      border: 3px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       cursor: pointer;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: 0.4s ease;
     }
 
     .gallery img:hover {
       transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 80px 15px rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 80px 15px rgba(255,255,255,0.9);
     }
 
-    /* Lightbox / Fullscreen overlay */
+    /* Lightbox */
     #lightbox {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      inset: 0;
+      background: rgba(0,0,0,0.9);
       justify-content: center;
       align-items: center;
       z-index: 200;
@@ -122,51 +143,27 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 12px;
-      box-shadow: 0 0 60px 15px rgba(255, 255, 255, 0.7);
     }
 
-    /* Footer bottom-right */
     footer {
       position: fixed;
       bottom: 10px;
       right: 20px;
+      opacity: 0.6;
       font-size: 14px;
       letter-spacing: 2px;
-      opacity: 0.6;
     }
 
-    /* Mobile */
     @media (max-width: 900px) {
-      .gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .gallery img {
-        width: 90%;
-        max-width: 400px;
-      }
-
-      h1.title {
-        font-size: 100px;
-      }
-
-      h2.subtitle {
-        font-size: 18px;
-      }
-
-      footer {
-        font-size: 12px;
-      }
+      h1.title { font-size: 100px; }
+      h2.subtitle { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Menu Button -->
   <button id="menuBtn">☰</button>
 
-  <!-- Menu -->
   <nav id="menu">
     <a href="#">Home</a>
     <a href="#">Shop now</a>
@@ -175,26 +172,25 @@
     <a href="#">Contact</a>
   </nav>
 
-  <!-- Main Title -->
-  <h1 class="title">F&amp;S</h1>
-  <h2 class="subtitle">Keep it close</h2>
+  <!-- Banner -->
+  <section class="banner">
+    <h1 class="title">F&amp;S</h1>
+    <h2 class="subtitle">Keep it close</h2>
+    <a href="#" class="banner-btn">SHOP NOW</a>
+  </section>
 
-  <!-- Image Gallery -->
+  <!-- Gallery -->
   <div class="gallery">
-    <img src="1.jpg" alt="Style 1">
-    <img src="2.jpg" alt="Style 2">
-    <img src="3.jpg" alt="Style 3">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="3.jpg">
   </div>
 
-  <!-- Lightbox Overlay -->
   <div id="lightbox">
-    <img src="" alt="Full view">
+    <img src="">
   </div>
 
-  <!-- Footer -->
-  <footer>
-    © Yamatai
-  </footer>
+  <footer>© Yamatai</footer>
 
   <script>
     const menuBtn = document.getElementById("menuBtn");
@@ -202,29 +198,21 @@
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = lightbox.querySelector("img");
 
-    // Menu toggle
-    menuBtn.addEventListener("click", (e) => {
+    menuBtn.onclick = e => {
       e.stopPropagation();
       menu.style.display = menu.style.display === "block" ? "none" : "block";
-    });
+    };
 
-    document.addEventListener("click", () => {
-      menu.style.display = "none";
-    });
+    document.onclick = () => menu.style.display = "none";
 
-    // Lightbox logic
-    const galleryImgs = document.querySelectorAll(".gallery img");
-    galleryImgs.forEach(img => {
-      img.addEventListener("click", () => {
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.onclick = () => {
         lightboxImg.src = img.src;
         lightbox.style.display = "flex";
-      });
+      };
     });
 
-    // Close lightbox on click
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
+    lightbox.onclick = () => lightbox.style.display = "none";
   </script>
 
 </body>
