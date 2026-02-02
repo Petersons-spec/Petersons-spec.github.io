@@ -31,13 +31,13 @@
     }
 
     .banner-btn {
-      margin-top: 30px;
+      margin-top: 32px;
       padding: 14px 36px;
       border-radius: 40px;
       background: black;
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 3px;
       transition: all 0.4s ease;
     }
@@ -94,14 +94,28 @@
     h1.title {
       font-family: 'Great Vibes', cursive;
       font-size: 140px;
-      margin: 0 0 20px;
+      margin: 0 0 18px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
+    /* Floral subtitle */
+    .subtitle-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .subtitle-wrapper::before,
+    .subtitle-wrapper::after {
+      content: "❀";
+      font-size: 18px;
+      opacity: 0.4;
+    }
+
     h2.subtitle {
-      font-size: 22px;
-      letter-spacing: 3px;
-      opacity: 0.8;
+      font-size: 16px;
+      letter-spacing: 4px;
+      opacity: 0.65;
       margin: 0;
       text-transform: uppercase;
     }
@@ -156,7 +170,7 @@
 
     @media (max-width: 900px) {
       h1.title { font-size: 100px; }
-      h2.subtitle { font-size: 18px; }
+      h2.subtitle { font-size: 14px; }
     }
   </style>
 </head>
@@ -175,7 +189,11 @@
   <!-- Banner -->
   <section class="banner">
     <h1 class="title">F&amp;S</h1>
-    <h2 class="subtitle">Keep it close</h2>
+
+    <div class="subtitle-wrapper">
+      <h2 class="subtitle">Keep it close</h2>
+    </div>
+
     <a href="#" class="banner-btn">SHOP NOW</a>
   </section>
 
