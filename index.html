@@ -15,42 +15,33 @@
       text-align: center;
     }
 
-    /* ===== Stylish Banner / Hero ===== */
+    /* ===== Slim Stylish Banner / Hero ===== */
     .banner {
-      min-height: 100vh;
+      height: 20vh; /* 1/5 of the screen */
+      min-height: 160px;
       background:
-        linear-gradient(rgba(247,230,230,0.6), rgba(244,209,209,0.8)),
-        url("banner.jpg");
-      background-size: cover;
-      background-position: center;
+        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
+        linear-gradient(135deg, #f7e6e6, #f1cfcf);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      animation: fadeIn 1.8s ease;
     }
 
-    .banner-btn {
-      margin-top: 30px;
-      padding: 14px 36px;
-      border-radius: 40px;
-      background: black;
-      color: white;
-      text-decoration: none;
+    h1.title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 72px;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+    }
+
+    h2.subtitle {
       font-size: 14px;
-      letter-spacing: 3px;
-      transition: all 0.4s ease;
-    }
-
-    .banner-btn:hover {
-      background: #d4af37;
-      color: black;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      letter-spacing: 4px;
+      opacity: 0.7;
+      margin-top: 4px;
+      text-transform: uppercase;
     }
 
     /* Menu button */
@@ -88,22 +79,6 @@
 
     #menu a:hover {
       color: #d4af37;
-    }
-
-    /* Titles */
-    h1.title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 140px;
-      margin: 0 0 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    h2.subtitle {
-      font-size: 22px;
-      letter-spacing: 3px;
-      opacity: 0.8;
-      margin: 0;
-      text-transform: uppercase;
     }
 
     /* Gallery */
@@ -155,15 +130,17 @@
     }
 
     @media (max-width: 900px) {
-      h1.title { font-size: 100px; }
-      h2.subtitle { font-size: 18px; }
+      h1.title { font-size: 50px; }
+      h2.subtitle { font-size: 12px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Menu Button -->
   <button id="menuBtn">☰</button>
 
+  <!-- Menu -->
   <nav id="menu">
     <a href="#">Home</a>
     <a href="#">Shop now</a>
@@ -172,24 +149,25 @@
     <a href="#">Contact</a>
   </nav>
 
-  <!-- Banner -->
+  <!-- Slim Banner -->
   <section class="banner">
     <h1 class="title">F&amp;S</h1>
     <h2 class="subtitle">Keep it close</h2>
-    <a href="#" class="banner-btn">SHOP NOW</a>
   </section>
 
   <!-- Gallery -->
   <div class="gallery">
-    <img src="1.jpg">
-    <img src="2.jpg">
-    <img src="3.jpg">
+    <img src="1.jpg" alt="Style 1">
+    <img src="2.jpg" alt="Style 2">
+    <img src="3.jpg" alt="Style 3">
   </div>
 
+  <!-- Lightbox -->
   <div id="lightbox">
     <img src="">
   </div>
 
+  <!-- Footer -->
   <footer>© Yamatai</footer>
 
   <script>
