@@ -2,27 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homepage</title>
+  <title>F&S Homepage</title>
+
+  <!-- Beautiful font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+
+    /* Title */
+    h1 {
+      font-size: 64px;
+      margin: 80px 0 40px;
+      letter-spacing: 4px;
+    }
+
+    /* Menu button */
+    #menuBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    /* Menu panel */
+    #menu {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 15px 20px;
+      border-radius: 10px;
+      display: none;
+      text-align: right;
+    }
+
+    #menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    #menu a:hover {
+      color: #ff9900;
+    }
+
+    /* Link */
+    a.main-link {
+      color: #4da6ff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a.main-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Image */
+    img {
+      width: 100%;
+      height: auto;
+      margin-top: 40px;
+    }
+
+    /* Footer */
+    footer {
+      margin: 30px 0;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
 
-  <center>
-  <font face="Georgia, Times New Roman, serif" size="7">
-    <h1>F&amp;S</h1>
-  </font>
-</center>
+  <!-- Menu Button -->
+  <button id="menuBtn">☰</button>
 
+  <!-- Menu -->
+  <nav id="menu">
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Title -->
+  <h1>F&amp;S</h1>
+
+  <!-- Link -->
   <p>
-    <a href="https://en.wikipedia.org/wiki/Black_cat" target="_blank">
+    <a class="main-link" href="https://en.wikipedia.org/wiki/Black_cat" target="_blank">
       More here
     </a>
   </p>
 
-  <img src="hd_wallpaper_21885.jpg" alt="Wallpaper" width="100%">
+  <!-- Responsive image -->
+  <img src="hd_wallpaper_21885.jpg" alt="Wallpaper">
 
+  <!-- Footer -->
   <footer>
     © Yamatai
   </footer>
 
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+
+    menuBtn.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && e.target !== menuBtn) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
+
 </body>
 </html>
+
