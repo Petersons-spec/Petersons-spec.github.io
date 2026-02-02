@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>F&S Homepage</title>
 
-  <!-- Fashion font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Great Vibes for F&S -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -15,7 +15,7 @@
       color: #000;
       font-family: 'Playfair Display', serif;
       text-align: center;
-      position: relative; /* needed for footer positioning */
+      position: relative; /* for footer */
     }
 
     /* Menu button */
@@ -31,7 +31,7 @@
       z-index: 100;
     }
 
-    /* Menu panel with items aligned left */
+    /* Menu panel */
     #menu {
       position: fixed;
       top: 60px;
@@ -41,8 +41,8 @@
       padding: 15px 20px;
       border-radius: 12px;
       display: none;
-      text-align: left; /* <-- aligned to start */
-      width: 180px; /* optional width */
+      text-align: left;
+      width: 180px;
     }
 
     #menu a {
@@ -58,21 +58,25 @@
       color: #d4af37;
     }
 
-    /* Main Title */
+    /* Main Title with Great Vibes font */
     h1.title {
-      font-size: 120px;        
-      letter-spacing: 6px;     
+      font-family: 'Great Vibes', cursive;
+      font-size: 140px;
+      letter-spacing: 6px;
       margin: 100px 0 20px;
-      text-transform: uppercase;
+      text-transform: none;
       color: #000;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
+    /* Subtitle */
     h2.subtitle {
+      font-family: 'Playfair Display', serif;
       font-size: 22px;
       margin: 0 0 40px;
       letter-spacing: 3px;
       opacity: 0.8;
+      text-transform: uppercase;
     }
 
     /* Gallery */
@@ -83,18 +87,18 @@
       padding: 40px;
     }
 
-    /* Picture with bright white backlight */
+    /* Pictures with bright white backlight */
     .gallery img {
       width: 280px;
       height: auto;
       border-radius: 16px;
-      box-shadow: 0 0 60px 10px rgba(255, 255, 255, 0.6); /* bright white glow */
+      box-shadow: 0 0 60px 10px rgba(255, 255, 255, 0.6);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .gallery img:hover {
       transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 80px 15px rgba(255, 255, 255, 0.9); /* brighter on hover */
+      box-shadow: 0 0 80px 15px rgba(255, 255, 255, 0.9);
     }
 
     /* Footer bottom-right */
@@ -107,7 +111,7 @@
       opacity: 0.6;
     }
 
-    /* Mobile */
+    /* Mobile responsiveness */
     @media (max-width: 900px) {
       .gallery {
         flex-direction: column;
@@ -120,7 +124,7 @@
       }
 
       h1.title {
-        font-size: 80px;
+        font-size: 100px;
       }
 
       h2.subtitle {
