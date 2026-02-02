@@ -31,7 +31,7 @@
       z-index: 100;
     }
 
-    /* Menu panel */
+    /* Menu panel with items aligned left */
     #menu {
       position: fixed;
       top: 60px;
@@ -41,7 +41,8 @@
       padding: 15px 20px;
       border-radius: 12px;
       display: none;
-      text-align: right;
+      text-align: left; /* <-- aligned to start */
+      width: 180px; /* optional width */
     }
 
     #menu a {
@@ -59,7 +60,7 @@
 
     /* Main Title */
     h1.title {
-      font-size: 120px;        /* big and bold */
+      font-size: 120px;        
       letter-spacing: 6px;     
       margin: 100px 0 20px;
       text-transform: uppercase;
@@ -82,20 +83,21 @@
       padding: 40px;
     }
 
+    /* Picture with bright white backlight */
     .gallery img {
       width: 280px;
       height: auto;
       border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 60px 10px rgba(255, 255, 255, 0.6); /* bright white glow */
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .gallery img:hover {
       transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 80px 15px rgba(255, 255, 255, 0.9); /* brighter on hover */
     }
 
-    /* Footer */
+    /* Footer bottom-right */
     footer {
       position: fixed;
       bottom: 10px;
