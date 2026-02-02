@@ -26,28 +26,29 @@
       font-size: 26px;
       background: none;
       border: none;
-      color: white;
+      color: black; /* black icon on white menu */
       cursor: pointer;
       z-index: 100;
     }
 
-    /* Menu panel */
+    /* Menu panel with white background and black text */
     #menu {
       position: fixed;
       top: 60px;
       right: 20px;
-      background: rgba(15, 15, 15, 0.9);
+      background: rgba(255, 255, 255, 0.95); /* bright white, slight transparency */
       backdrop-filter: blur(10px);
       padding: 15px 20px;
       border-radius: 12px;
       display: none;
       text-align: left;
       width: 180px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
     }
 
     #menu a {
       display: block;
-      color: white;
+      color: #000;  /* black text */
       text-decoration: none;
       margin: 10px 0;
       font-size: 16px;
@@ -55,12 +56,13 @@
     }
 
     #menu a:hover {
-      color: #d4af37;
+      color: #d4af37; /* gold highlight on hover */
     }
 
-    /* Main Title with Great Vibes font */
+    /* Main Title with Great Vibes font and thinner weight */
     h1.title {
       font-family: 'Great Vibes', cursive;
+      font-weight: 400; /* thinner */
       font-size: 140px;
       letter-spacing: 6px;
       margin: 100px 0 20px;
