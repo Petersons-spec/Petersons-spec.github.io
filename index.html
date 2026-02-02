@@ -31,24 +31,24 @@
       z-index: 100;
     }
 
-    /* Menu panel with white background and black text */
+    /* Menu panel */
     #menu {
       position: fixed;
       top: 60px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.95); /* bright white, slight transparency */
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       padding: 15px 20px;
       border-radius: 12px;
       display: none;
       text-align: left;
       width: 180px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     #menu a {
       display: block;
-      color: #000;  /* black text */
+      color: #000;
       text-decoration: none;
       margin: 10px 0;
       font-size: 16px;
@@ -56,13 +56,13 @@
     }
 
     #menu a:hover {
-      color: #d4af37; /* gold highlight on hover */
+      color: #d4af37;
     }
 
-    /* Main Title with Great Vibes font and thinner weight */
+    /* Main Title */
     h1.title {
       font-family: 'Great Vibes', cursive;
-      font-weight: 400; /* thinner */
+      font-weight: 400;
       font-size: 140px;
       letter-spacing: 6px;
       margin: 100px 0 20px;
@@ -71,7 +71,6 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
-    /* Subtitle */
     h2.subtitle {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
@@ -87,21 +86,43 @@
       justify-content: center;
       gap: 30px;
       padding: 40px;
+      flex-wrap: wrap;
     }
 
-    /* Pictures with bright white backlight */
     .gallery img {
       width: 280px;
       height: auto;
       border-radius: 16px;
       border: 3px solid rgba(255, 255, 255, 0.7);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .gallery img:hover {
       transform: translateY(-10px) scale(1.03);
       box-shadow: 0 0 80px 15px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Lightbox / Fullscreen overlay */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 60px 15px rgba(255, 255, 255, 0.7);
     }
 
     /* Footer bottom-right */
@@ -114,7 +135,7 @@
       opacity: 0.6;
     }
 
-    /* Mobile responsiveness */
+    /* Mobile */
     @media (max-width: 900px) {
       .gallery {
         flex-direction: column;
@@ -165,6 +186,11 @@
     <img src="3.jpg" alt="Style 3">
   </div>
 
+  <!-- Lightbox Overlay -->
+  <div id="lightbox">
+    <img src="" alt="Full view">
+  </div>
+
   <!-- Footer -->
   <footer>
     © Yamatai
@@ -173,7 +199,10 @@
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const menu = document.getElementById("menu");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
 
+    // Menu toggle
     menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -181,6 +210,20 @@
 
     document.addEventListener("click", () => {
       menu.style.display = "none";
+    });
+
+    // Lightbox logic
+    const galleryImgs = document.querySelectorAll(".gallery img");
+    galleryImgs.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
+
+    // Close lightbox on click
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
     });
   </script>
 
