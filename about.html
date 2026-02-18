@@ -43,6 +43,59 @@
       text-transform: uppercase;
     }
 
+/* ===== Shared Menu ===== */
+#menu-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#menuBtn {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+#menuBtn:hover {
+  color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(212,175,55,0.25);
+}
+
+#menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: rgba(255,255,255,0.96);
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: none;
+  width: 180px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+#menu a {
+  display: block;
+  color: #222;
+  margin: 10px 0;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+#menu a:hover {
+  color: #d4af37;
+}
+
+
+    
     /* ===== About Section ===== */
     .about-wrapper {
       max-width: 900px;
@@ -110,6 +163,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Banner -->
@@ -118,6 +172,21 @@
     <div class="subtitle">Our Story</div>
   </section>
 
+    <!-- ===== Shared Header / Menu ===== -->
+    <div id="menu-container">
+      <button id="menuBtn">☰ MENU</button>
+    
+      <nav id="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Shop now</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+
+  
   <!-- About Content -->
   <section class="about-wrapper">
     <h2 class="about-heading">Welcome to Frieda & Sophie</h2>
@@ -150,6 +219,26 @@
   <footer>
     © Yamatai 2026
   </footer>
+
+    
+<script>
+  // Wait until page is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function () {
+      menu.style.display = "none";
+    });
+
+  });
+</script>
 
 </body>
 </html>
