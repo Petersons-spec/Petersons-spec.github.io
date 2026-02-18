@@ -35,25 +35,57 @@ body {
   text-transform: uppercase;
 }
 
-/* ===== Back Button ===== */
-.back-home {
+/* ===== Shared Menu ===== */
+#menu-container {
   position: fixed;
   top: 20px;
   right: 20px;
-  padding: 10px 18px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.85);
-  text-decoration: none;
-  color: #222;
-  font-size: 14px;
-  letter-spacing: 2px;
-  transition: 0.3s ease;
+  z-index: 1000;
 }
 
-.back-home:hover {
+#menuBtn {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+#menuBtn:hover {
   color: #d4af37;
   transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(212,175,55,0.25);
 }
+
+#menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: rgba(255,255,255,0.96);
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: none;
+  width: 180px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+#menu a {
+  display: block;
+  color: #222;
+  margin: 10px 0;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+#menu a:hover {
+  color: #d4af37;
+}
+
 
 /* ===== Gallery Grid ===== */
 .gallery {
@@ -124,6 +156,20 @@ footer {
 
 <body>
 
+  <!-- ===== Shared Header / Menu ===== -->
+<div id="menu-container">
+  <button id="menuBtn">☰ MENU</button>
+
+  <nav id="menu">
+    <a href="index.html">Home</a>
+    <a href="#">Shop now</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
+
+
 <a href="index.html" class="back-home">HOME</a>
 
 <!-- Header -->
@@ -163,6 +209,18 @@ document.querySelectorAll(".gallery img").forEach(img => {
 });
 
 lightbox.onclick = () => lightbox.style.display = "none";
+</script>
+
+  <script>
+  const menuBtn = document.getElementById("menuBtn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.onclick = (e) => {
+    e.stopPropagation();
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  };
+
+  document.onclick = () => menu.style.display = "none";
 </script>
 
 </body>
