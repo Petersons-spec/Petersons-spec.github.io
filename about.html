@@ -2,56 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About Us – F&S</title>
+  <title>About | Frieda & Sophie</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- Google Fonts (same as homepage) -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
       background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
+      color: #2a2a2a;
+    }
+
+    /* ===== Top Banner ===== */
+    .banner {
+      height: 18vh;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
+        linear-gradient(135deg, #f7e6e6, #f1cfcf);
+    }
+
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin: 0;
+    }
+
+    .subtitle {
+      letter-spacing: 4px;
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    /* ===== About Section ===== */
+    .about-wrapper {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 50px 40px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
       text-align: center;
-      padding: 60px 20px;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+    .about-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: 42px;
+      margin-bottom: 25px;
+      color: #222;
     }
 
-    p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.6;
-      opacity: 0.85;
+    .about-text {
+      font-size: 17px;
+      line-height: 1.9;
+      letter-spacing: 0.3px;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 40px;
-      text-decoration: none;
-      color: black;
+    .signature {
+      margin-top: 35px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #444;
+    }
+
+    /* ===== Divider ===== */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #d4af37;
+      margin: 25px auto 35px auto;
+      opacity: 0.6;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      margin: 40px 0 20px 0;
+      font-size: 13px;
       letter-spacing: 2px;
+      opacity: 0.6;
     }
 
-    a:hover {
-      color: #d4af37;
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .about-wrapper {
+        margin: 30px 20px;
+        padding: 35px 25px;
+      }
+
+      .about-text {
+        font-size: 16px;
+      }
+
+      .title {
+        font-size: 44px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>About Us</h1>
+  <!-- Banner -->
+  <section class="banner">
+    <h1 class="title">F&S</h1>
+    <div class="subtitle">Our Story</div>
+  </section>
 
-  <p>
-    F&S is about keeping what matters close.  
-    We believe in elegance, simplicity, and timeless design.
-    Every piece is created with care, meaning, and intention.
-  </p>
+  <!-- About Content -->
+  <section class="about-wrapper">
+    <h2 class="about-heading">Welcome to Frieda & Sophie</h2>
+    <div class="divider"></div>
 
-  <a href="index.html">← Back to Home</a>
+    <p class="about-text">
+      We’re a mother–daughter duo based in Norway, creating jewellery boxes
+      that hold more than just your treasures — they carry stories, memories,
+      and meaning.
+    </p>
+
+    <p class="about-text">
+      Each piece is thoughtfully curated, designed, and handcrafted using
+      embroidered mulberry silk and other beautiful materials. With a blend of
+      traditional craftsmanship and everyday elegance, our boxes are perfect for
+      gifting or keeping your most cherished pieces safe.
+    </p>
+
+    <p class="about-text">
+      Rooted in love, simplicity, and connection — our collection celebrates
+      the little things worth holding onto.
+    </p>
+
+    <div class="signature">
+      Thank you for being here.<br>
+      — Frieda & Sophie
+    </div>
+  </section>
+
+  <footer>
+    © Yamatai 2026
+  </footer>
 
 </body>
 </html>
