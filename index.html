@@ -43,6 +43,42 @@
   opacity: 0.4;
 }
 
+    /* Centered Social Call-To-Action */
+.social-cta {
+  margin: 40px 0 70px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Base Button Style */
+.social-btn {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 16px 42px;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #222;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+}
+
+/* Hover = luxury effect */
+.social-btn:hover {
+  transform: translateY(-4px);
+  color: #d4af37;
+  box-shadow: 0 18px 40px rgba(212,175,55,0.25);
+}
+
+/* Slight emphasis for Shopify */
+.social-btn.shopify {
+  background: linear-gradient(135deg, #ffffff, #f6f6f6);
+}
+
 
     /* ===== Slim Stylish Banner / Hero ===== */
     .banner {
@@ -235,6 +271,16 @@
   <div id="lightbox">
     <img src="">
   </div>
+  
+  <section class="social-cta">
+    <a href="https://instagram.com/yourprofile" target="_blank" class="social-btn">
+      Instagram
+    </a>
+
+    <a href="https://yourstore.myshopify.com" target="_blank" class="social-btn shopify">
+      Visit Shop
+  </a>
+</section>
 
   <footer>
   <div class="socials">
