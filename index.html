@@ -155,13 +155,44 @@
     }
 
     footer {
-      position: fixed;
-      bottom: 10px;
-      right: 20px;
-      opacity: 0.6;
-      font-size: 14px;
-      letter-spacing: 2px;
-    }
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* Social icon container */
+.socials {
+  display: flex;
+  gap: 14px;
+}
+
+/* SVG icons */
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: #222;
+  opacity: 0.65;
+  transition: all 0.3s ease;
+}
+
+/* Hover = luxury gold effect */
+.icon:hover {
+  fill: #d4af37;
+  opacity: 1;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 10px rgba(212,175,55,0.4));
+}
+
+/* Keep copyright subtle */
+.copyright {
+  opacity: 0.6;
+}
+
 
     @media (max-width: 900px) {
       h1.title { font-size: 50px; }
