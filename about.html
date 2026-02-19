@@ -5,25 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Frieda & Sophie</title>
 
-  <!-- Google Fonts (same as homepage) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-        body {
+    /* ===== GLOBAL FIXES (important for mobile) ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
       margin: 0;
       font-family: 'Playfair Display', serif;
       background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
       color: #2a2a2a;
-      min-height: 100dvh; /* better than 100vh on phones */
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+
+      /* iPhone safe-area support */
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
     }
 
-
-    /* ===== Top Banner ===== */
-        .banner {
-      min-height: 22vh;
-      padding: 20px;
+    /* ===== Banner ===== */
+    .banner {
+      min-height: 26vh;
+      padding: clamp(30px, 6vw, 60px) 20px 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -35,83 +50,64 @@
         linear-gradient(135deg, #f7e6e6, #f1cfcf);
     }
 
-        .title {
+    .title {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(42px, 10vw, 60px);
+      margin: 0;
     }
-    
+
     .subtitle {
       letter-spacing: 3px;
       font-size: clamp(11px, 3vw, 13px);
-    }
-    
-    .about-heading {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(30px, 7vw, 42px);
-    }
-    
-    .about-text {
-      font-size: clamp(15px, 4vw, 17px);
-      line-height: 1.8;
+      margin-top: 5px;
+      text-transform: uppercase;
     }
 
+    /* ===== Menu ===== */
+    #menu-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
 
-/* ===== Shared Menu ===== */
-#menu-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
+    #menuBtn {
+      font-size: 16px;
+      letter-spacing: 2px;
+      padding: 14px 22px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
 
-#menuBtn {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  padding: 14px 22px; /* bigger tap area */
-  background: rgba(255,255,255,0.9);
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
+    #menu {
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background: rgba(255,255,255,0.96);
+      padding: 12px 18px;
+      border-radius: 12px;
+      display: none;
+      width: 180px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
 
-#menuBtn:hover {
-  color: #d4af37;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(212,175,55,0.25);
-}
+    #menu a {
+      display: block;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #222;
+      text-decoration: none;
+    }
 
-#menu {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  background: rgba(255,255,255,0.96);
-  padding: 12px 18px;
-  border-radius: 12px;
-  display: none;
-  width: 180px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
+    #menu a:hover {
+      color: #d4af37;
+    }
 
-#menu a {
-  display: block;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #222;
-  margin: 10px 0;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-#menu a:hover {
-  color: #d4af37;
-}
-
-
-    
     /* ===== About Section ===== */
-       .about-wrapper {
+    .about-wrapper {
       width: min(900px, 92%);
       margin: clamp(20px, 6vw, 60px) auto;
       padding: clamp(24px, 6vw, 50px);
@@ -120,32 +116,27 @@
       border-radius: clamp(14px, 4vw, 20px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.08);
       text-align: center;
-      flex-grow: 1;   /* ← allows it to expand vertically */
+      flex-grow: 1;
+      min-height: 0; /* fixes mobile flex bug */
     }
-
-
 
     .about-heading {
       font-family: 'Great Vibes', cursive;
-      font-size: 42px;
+      font-size: clamp(30px, 7vw, 42px);
       margin-bottom: 25px;
-      color: #222;
     }
 
     .about-text {
-      font-size: 17px;
-      line-height: 1.9;
-      letter-spacing: 0.3px;
+      font-size: clamp(15px, 4vw, 17px);
+      line-height: 1.8;
     }
 
     .signature {
       margin-top: 35px;
       font-family: 'Great Vibes', cursive;
       font-size: 28px;
-      color: #444;
     }
 
-    /* ===== Divider ===== */
     .divider {
       width: 60px;
       height: 2px;
@@ -154,7 +145,6 @@
       opacity: 0.6;
     }
 
-    /* ===== Footer ===== */
     footer {
       text-align: center;
       margin: auto 0 20px 0;
@@ -163,33 +153,27 @@
       opacity: 0.6;
     }
 
-    /* ===== Responsive ===== */
+    /* ===== Mobile Menu Layout ===== */
     @media (max-width: 768px) {
+
+      #menu-container {
+        top: 14px;
+        right: 14px;
+      }
+
       #menu {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    left: 20px;
-    width: auto;
-    border-radius: 16px;
-    padding: 20px;
-  }
-
-  #menu a {
-    padding: 14px 0;
-    font-size: 18px;
-  }
-      .about-wrapper {
-        margin: 30px 20px;
-        padding: 35px 25px;
+        position: fixed;
+        top: 70px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        border-radius: 16px;
+        padding: 20px;
       }
 
-      .about-text {
-        font-size: 16px;
-      }
-
-      .title {
-        font-size: 44px;
+      #menu a {
+        padding: 14px 0;
+        font-size: 18px;
       }
     }
   </style>
@@ -197,28 +181,23 @@
 
 <body>
 
-  <!-- Banner -->
   <section class="banner">
     <h1 class="title">F&S</h1>
     <div class="subtitle">Our Story</div>
   </section>
 
-    <!-- ===== Shared Header / Menu ===== -->
-    <div id="menu-container">
-      <button id="menuBtn">☰ MENU</button>
-    
-      <nav id="menu">
-        <a href="index.html">Home</a>
-        <a href="#">Shop now</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <div id="menu-container">
+    <button id="menuBtn">☰ MENU</button>
 
+    <nav id="menu">
+      <a href="index.html">Home</a>
+      <a href="#">Shop now</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 
-  
-  <!-- About Content -->
   <section class="about-wrapper">
     <h2 class="about-heading">Welcome to Frieda & Sophie</h2>
     <div class="divider"></div>
@@ -231,9 +210,7 @@
 
     <p class="about-text">
       Each piece is thoughtfully curated, designed, and handcrafted using
-      embroidered mulberry silk and other beautiful materials. With a blend of
-      traditional craftsmanship and everyday elegance, our boxes are perfect for
-      gifting or keeping your most cherished pieces safe.
+      embroidered mulberry silk and other beautiful materials.
     </p>
 
     <p class="about-text">
@@ -251,24 +228,20 @@
     © Yamatai 2026
   </footer>
 
-    
 <script>
-  // Wait until page is loaded
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const menu = document.getElementById("menu");
 
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-
-    menuBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    });
-
-    document.addEventListener("click", function () {
-      menu.style.display = "none";
-    });
-
+  menuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
   });
+
+  document.addEventListener("click", function () {
+    menu.style.display = "none";
+  });
+});
 </script>
 
 </body>
