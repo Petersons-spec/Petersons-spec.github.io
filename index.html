@@ -15,7 +15,7 @@ body {
 
 /* ===== Banner ===== */
 .banner {
-  min-height: 180px;
+  min-height: 220px; /* increase to lower nav */
   padding: 30px 20px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 /* F&S = Home Button */
@@ -40,7 +41,7 @@ h1.title {
 
 /* Navigation */
 .nav-links {
-  margin-top: 25px;
+  margin-top: 40px; /* pushed lower */
   display: flex;
   gap: 60px;
 }
@@ -63,7 +64,8 @@ h1.title {
 /* ===== HERO LAYOUT ===== */
 .hero-wrapper {
   display: flex;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 220px);
+  gap: 20px;
 }
 
 .hero-main {
@@ -81,10 +83,12 @@ h1.title {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .hero-side img {
   height: 33.333%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -130,11 +134,11 @@ footer {
   }
 
   .nav-links a {
-    font-size: 18px;   /* MUCH larger on phone */
+    font-size: 18px;
   }
 
   .hero-wrapper {
-    flex-direction: column;
+    flex-direction: column; /* stack large + small images */
     height: auto;
   }
 
@@ -143,13 +147,16 @@ footer {
   }
 
   .hero-side {
-    flex-direction: row;
-    height: 140px;
+    flex-direction: row; /* small images side by side */
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    gap: 10px;
   }
 
   .hero-side img {
-    width: 33.333%;
-    height: 100%;
+    width: calc(33.333% - 6.66px); /* three in a row with gap */
+    height: auto;
   }
 
   .shop-call {
