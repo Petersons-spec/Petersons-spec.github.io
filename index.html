@@ -5,7 +5,7 @@
   <title>F&S Homepage</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ===== Global ===== */
@@ -16,7 +16,7 @@
       text-align: center;
     }
 
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
     /* ===== Banner ===== */
     .banner {
@@ -34,13 +34,20 @@
       z-index: 2;
     }
 
-    h1.title {
+    /* F&S = Home button */
+    .title {
       font-family: 'Great Vibes', cursive;
       font-size: 72px;
       margin: 0;
+      transition: 0.3s ease;
     }
 
-    h2.subtitle {
+    .title:hover {
+      color: #d4af37;
+      transform: scale(1.05);
+    }
+
+    .subtitle {
       font-size: 14px;
       letter-spacing: 4px;
       opacity: 0.7;
@@ -48,60 +55,54 @@
       text-transform: uppercase;
     }
 
+    /* ===== Navigation Under Banner ===== */
+    .top-nav {
+      margin-top: 14px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .top-nav a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: 0.3s ease;
+    }
+
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: #d4af37;
+      transition: 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      color: #d4af37;
+    }
+
+    .top-nav a:hover::after {
+      width: 100%;
+    }
+
     /* ===== FULLSCREEN IMAGE ===== */
     .hero {
       width: 100%;
-      height: calc(100vh - 20vh); /* fills screen minus banner */
+      height: calc(100vh - 20vh);
       overflow: hidden;
     }
 
     .hero img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* fills screen without distortion */
+      object-fit: cover;
       display: block;
     }
-
-    /* ===== Menu ===== */
-    #menu-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-
-    #menuBtn {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      letter-spacing: 2px;
-      padding: 10px 18px;
-      background: rgba(255,255,255,0.85);
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    #menu {
-      position: absolute;
-      top: 120%;
-      right: 0;
-      background: rgba(255,255,255,0.96);
-      padding: 12px 18px;
-      border-radius: 12px;
-      display: none;
-      width: 180px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    #menu a {
-      display: block;
-      color: #222;
-      margin: 10px 0;
-      letter-spacing: 1px;
-    }
-
-    #menu a:hover { color: #d4af37; }
 
     /* ===== Content After Scroll ===== */
     .shop-call {
@@ -122,64 +123,58 @@
       width: 280px;
       border-radius: 16px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: 0.4s ease;
     }
 
-    /* ===== Social Buttons ===== */
-    .social-cta {
-      margin: 40px 0 70px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    .gallery img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
     }
 
-    .social-btn {
-      font-size: 16px;
-      padding: 16px 40px;
-      border-radius: 40px;
-      color: #222;
-      background: rgba(255,255,255,0.8);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
+    /* ===== Footer ===== */
     footer {
       margin: 40px 0;
       font-size: 14px;
       letter-spacing: 2px;
       opacity: 0.6;
     }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .title { font-size: 48px; }
+      .top-nav { gap: 24px; font-size: 13px; }
+      .gallery img { width: 90%; max-width: 320px; }
+    }
   </style>
 </head>
 
 <body>
 
-<!-- Menu -->
-<div id="menu-container">
-  <button id="menuBtn">☰ MENU</button>
-  <nav id="menu">
-    <a href="#">Home</a>
-    <a href="#">Shop now</a>
+<!-- Banner -->
+<section class="banner">
+
+  <!-- Clickable Logo -->
+  <a href="index.html">
+    <h1 class="title">F&amp;S</h1>
+  </a>
+
+  <h2 class="subtitle">Keep it close</h2>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-</div>
 
-<!-- Banner -->
-<section class="banner">
-  <h1 class="title">F&amp;S</h1>
-  <h2 class="subtitle">Keep it close</h2>
 </section>
 
 <!-- FULLSCREEN IMAGE -->
 <section class="hero">
-  <img src="red.jpg" alt="F&S">
+  <img src="red.jpg" alt="Frieda & Sophie">
 </section>
 
-<!-- Content appears when scrolling -->
+<!-- Scroll Content -->
 <section class="shop-call">
   Shop Now & Browse Collection
 </section>
@@ -190,23 +185,7 @@
   <img src="3.jpg">
 </div>
 
-<section class="social-cta">
-  <a href="#">Instagram</a>
-  <a href="#">Visit Shop</a>
-</section>
-
 <footer>© Yamatai 2026</footer>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const menu = document.getElementById("menu");
-
-menuBtn.onclick = e => {
-  e.stopPropagation();
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-};
-document.onclick = () => menu.style.display = "none";
-</script>
 
 </body>
 </html>
