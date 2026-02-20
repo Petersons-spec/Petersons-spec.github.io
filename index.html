@@ -1,151 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>F&S Homepage</title>
+<meta charset="UTF-8">
+<title>F&S Homepage</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* ===== Global ===== */
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
+}
 
-    a { text-decoration: none; color: inherit; }
+/* ===== Banner ===== */
+.banner {
+  min-height: 180px;
+  padding: 30px 20px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
+    linear-gradient(135deg, #f7e6e6, #f1cfcf);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    /* ===== Banner ===== */
-    .banner {
-      height: 20vh;
-      min-height: 160px;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
-        linear-gradient(135deg, #f7e6e6, #f1cfcf);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
+/* F&S = Home Button */
+.title-link {
+  text-decoration: none;
+  color: black;
+}
 
-    /* F&S = Home button */
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 72px;
-      margin: 0;
-      transition: 0.3s ease;
-    }
+h1.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  margin: 0;
+}
 
-    .title:hover {
-      color: #d4af37;
-      transform: scale(1.05);
-    }
+/* Navigation */
+.nav-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 60px;
+}
 
-    .subtitle {
-      font-size: 14px;
-      letter-spacing: 4px;
-      opacity: 0.7;
-      margin-top: 4px;
-      text-transform: uppercase;
-    }
+.nav-links a {
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: #222;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
 
-    /* ===== Navigation Under Banner ===== */
-    .top-nav {
-      margin-top: 14px;
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
+.nav-links a:hover {
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
 
-    .top-nav a {
-      position: relative;
-      padding-bottom: 4px;
-      transition: 0.3s ease;
-    }
+/* ===== HERO LAYOUT ===== */
+.hero-wrapper {
+  display: flex;
+  height: calc(100vh - 200px);
+}
 
-    .top-nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 1px;
-      background: #d4af37;
-      transition: 0.3s ease;
-    }
+.hero-main {
+  flex: 3;
+}
 
-    .top-nav a:hover {
-      color: #d4af37;
-    }
+.hero-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .top-nav a:hover::after {
-      width: 100%;
-    }
+/* Right-side images */
+.hero-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-    /* ===== FULLSCREEN IMAGE ===== */
-    .hero {
-      width: 100%;
-      height: calc(100vh - 20vh);
-      overflow: hidden;
-    }
+.hero-side img {
+  height: 33.333%;
+  object-fit: cover;
+}
 
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/* ===== Content ===== */
+.shop-call {
+  text-align: center;
+  margin: 60px 0 20px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+}
 
-    /* ===== Content After Scroll ===== */
-    .shop-call {
-      margin: 60px 0 10px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 34px;
-    }
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
 
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 40px;
-      flex-wrap: wrap;
-    }
+.gallery img {
+  width: 280px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-    .gallery img {
-      width: 280px;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      transition: 0.4s ease;
-    }
+footer {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
 
-    .gallery img:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-    }
+/* ===== MOBILE VERSION ===== */
+@media (max-width: 768px) {
 
-    /* ===== Footer ===== */
-    footer {
-      margin: 40px 0;
-      font-size: 14px;
-      letter-spacing: 2px;
-      opacity: 0.6;
-    }
+  h1.title {
+    font-size: 56px;
+  }
 
-    /* ===== Mobile ===== */
-    @media (max-width: 768px) {
-      .title { font-size: 48px; }
-      .top-nav { gap: 24px; font-size: 13px; }
-      .gallery img { width: 90%; max-width: 320px; }
-    }
-  </style>
+  .nav-links {
+    gap: 25px;
+  }
+
+  .nav-links a {
+    font-size: 18px;   /* MUCH larger on phone */
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero-main {
+    height: 60vh;
+  }
+
+  .hero-side {
+    flex-direction: row;
+    height: 140px;
+  }
+
+  .hero-side img {
+    width: 33.333%;
+    height: 100%;
+  }
+
+  .shop-call {
+    font-size: 32px;
+    padding: 0 20px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -153,15 +165,13 @@
 <!-- Banner -->
 <section class="banner">
 
-  <!-- Clickable Logo -->
-  <a href="index.html">
+  <!-- F&S = HOME -->
+  <a href="index.html" class="title-link">
     <h1 class="title">F&amp;S</h1>
   </a>
 
-  <h2 class="subtitle">Keep it close</h2>
-
   <!-- Navigation -->
-  <nav class="top-nav">
+  <nav class="nav-links">
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
@@ -169,12 +179,23 @@
 
 </section>
 
-<!-- FULLSCREEN IMAGE -->
-<section class="hero">
-  <img src="red.jpg" alt="Frieda & Sophie">
+<!-- Hero Images -->
+<section class="hero-wrapper">
+
+  <!-- Large Image -->
+  <div class="hero-main">
+    <img src="red.jpg" alt="">
+  </div>
+
+  <!-- Right Column -->
+  <div class="hero-side">
+    <img src="side1.jpg" alt="">
+    <img src="side2.jpg" alt="">
+    <img src="side3.jpg" alt="">
+  </div>
+
 </section>
 
-<!-- Scroll Content -->
 <section class="shop-call">
   Shop Now & Browse Collection
 </section>
