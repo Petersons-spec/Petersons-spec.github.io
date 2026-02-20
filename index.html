@@ -16,9 +16,7 @@
       text-align: center;
     }
 
-    a {
-      text-decoration: none;
-    }
+    a { text-decoration: none; }
 
     /* ===== Banner ===== */
     .banner {
@@ -32,13 +30,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     h1.title {
       font-family: 'Great Vibes', cursive;
       font-size: 72px;
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     }
 
     h2.subtitle {
@@ -49,16 +48,28 @@
       text-transform: uppercase;
     }
 
-          /* Container in top-right corner */
-   /* Menu container fixed to right */
+    /* ===== FULLSCREEN IMAGE ===== */
+    .hero {
+      width: 100%;
+      height: calc(100vh - 20vh); /* fills screen minus banner */
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* fills screen without distortion */
+      display: block;
+    }
+
+    /* ===== Menu ===== */
     #menu-container {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 100;
     }
-    
-    /* Single MENU button */
+
     #menuBtn {
       font-family: 'Playfair Display', serif;
       font-size: 18px;
@@ -69,17 +80,8 @@
       border-radius: 30px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
     }
-    
-    /* Hover effect */
-    #menuBtn:hover {
-      color: #d4af37;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(212,175,55,0.25);
-    }
-    
-    /* Dropdown */
+
     #menu {
       position: absolute;
       top: 120%;
@@ -91,44 +93,23 @@
       width: 180px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
-    
-    /* Menu links */
+
     #menu a {
       display: block;
       color: #222;
-      text-decoration: none;
       margin: 10px 0;
       letter-spacing: 1px;
-      transition: 0.25s ease;
-    }
-    
-    #menu a:hover {
-      color: #d4af37;
     }
 
+    #menu a:hover { color: #d4af37; }
 
-
-    /* ===== Shop Call Above Gallery ===== */
+    /* ===== Content After Scroll ===== */
     .shop-call {
-      margin: 30px 0 10px;
+      margin: 60px 0 10px;
       font-family: 'Great Vibes', cursive;
       font-size: 34px;
-      letter-spacing: 1px;
     }
 
-    .shop-link {
-      color: #222;
-      padding: 4px 10px;
-      transition: all 0.3s ease;
-    }
-
-    .shop-link:hover {
-      color: #d4af37;
-      text-shadow: 0 2px 18px rgba(212,175,55,0.45);
-      transform: translateY(-1px);
-    }
-
-    /* ===== Gallery ===== */
     .gallery {
       display: flex;
       justify-content: center;
@@ -141,126 +122,43 @@
       width: 280px;
       border-radius: 16px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: all 0.4s ease;
     }
 
-    .gallery img:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 80px 15px rgba(255,255,255,0.9);
-    }
-
-      
-    
-    /* ===== Lightbox ===== */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    /* ===== Social Buttons ===== */
+    .social-cta {
+      margin: 40px 0 70px;
+      display: flex;
       justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      font-size: 16px;
+      padding: 16px 40px;
+      border-radius: 40px;
+      color: #222;
+      background: rgba(255,255,255,0.8);
+      display: flex;
       align-items: center;
-      z-index: 200;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-    }
-
-   /* Social CTA Buttons */
-.social-cta {
-  margin: 40px 0 70px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.social-btn {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 16px 40px;
-  border-radius: 40px;
-  text-decoration: none;
-  color: #222;
-  background: rgba(255,255,255,0.8);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
-}
-
-.social-btn:hover {
-  transform: translateY(-4px);
-  color: #d4af37;
-  box-shadow: 0 18px 40px rgba(212,175,55,0.25);
-}
-
-.social-btn.shopify {
-  background: linear-gradient(135deg, #ffffff, #f6f6f6);
-}
-
-/* Button Icons */
-.btn-icon {
-  width: 24px;
-  height: 24px;
-  fill: #222;
-  transition: all 0.3s ease;
-}
-
-.social-btn:hover .btn-icon {
-  fill: #d4af37;
-}
-
-/* Footer */
-footer {
-  position: fixed;
-  bottom: 10px;
-  right: 20px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-}
-
-    .icon {
-      width: 22px;
-      height: 22px;
-      fill: #222;
-      opacity: 0.65;
-      transition: all 0.3s ease;
-    }
-
-    .icon:hover {
-      fill: #d4af37;
-      opacity: 1;
-      transform: translateY(-2px);
-      filter: drop-shadow(0 4px 10px rgba(212,175,55,0.4));
-    }
-
-    .copyright {
+    footer {
+      margin: 40px 0;
+      font-size: 14px;
+      letter-spacing: 2px;
       opacity: 0.6;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 900px) {
-      h1.title { font-size: 50px; }
-      h2.subtitle { font-size: 12px; }
-      .shop-call { font-size: 28px; }
-      .social-btn { font-size: 14px; padding: 12px 30px; }
-      .gallery img { width: 220px; }
     }
   </style>
 </head>
+
 <body>
 
-    <!-- Menu Button with Label -->
- <div id="menu-container">
+<!-- Menu -->
+<div id="menu-container">
   <button id="menuBtn">☰ MENU</button>
-
   <nav id="menu">
     <a href="#">Home</a>
     <a href="#">Shop now</a>
@@ -270,71 +168,45 @@ footer {
   </nav>
 </div>
 
-  <!-- Banner -->
-  <section class="banner">
-    <h1 class="title">F&amp;S</h1>
-    <h2 class="subtitle">Keep it close</h2>
-  </section>
-
-  <!-- Shop Call Above Gallery -->
-  <section class="shop-call">
-    <a href="#" class="shop-link">Shop Now & Browse Collection</a>
-  </section>
-
-  <!-- Gallery -->
-  <div class="gallery">
-    <img src="1.jpg" alt="Style 1">
-    <img src="2.jpg" alt="Style 2">
-    <img src="3.jpg" alt="Style 3">
-  </div>
-
-  <!-- Social CTA Buttons -->
-<section class="social-cta">
-  <a href="https://instagram.com/yourprofile" target="_blank" class="social-btn">
-    <!-- Instagram Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="btn-icon">
-      <path d="M349.33 69.33H162.67C101.33 69.33 69.33 101.33 69.33 162.67v186.66c0 61.33 32 93.33 93.34 93.34h186.66c61.33 0 93.33-32 93.33-93.34V162.67c0-61.34-32-93.34-93.33-93.34zM256 349.33a93.33 93.33 0 1 1 93.33-93.33A93.33 93.33 0 0 1 256 349.33zm96-186.66a21.33 21.33 0 1 1 21.33-21.33 21.33 21.33 0 0 1-21.33 21.33z"/>
-      <circle cx="256" cy="256" r="60"/>
-    </svg>
-    Instagram
-  </a>
-
-  <a href="https://yourstore.myshopify.com" target="_blank" class="social-btn shopify">
-    <!-- Shopify Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="btn-icon">
-      <path d="M504 128c0-8.8-7.2-16-16-16h-56V56c0-13.2-10.8-24-24-24H104c-13.2 0-24 10.8-24 24v56H24c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h464c8.8 0 16-7.2 16-16V128zm-56 0H64V64h384v64zM256 384c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
-    </svg>
-    Visit Shop
-  </a>
+<!-- Banner -->
+<section class="banner">
+  <h1 class="title">F&amp;S</h1>
+  <h2 class="subtitle">Keep it close</h2>
 </section>
 
-<!-- Footer -->
-<footer>
-  © Yamatai 2026
-</footer>
+<!-- FULLSCREEN IMAGE -->
+<section class="hero">
+  <img src="red.jpg" alt="F&S">
+</section>
 
- 
-  <!-- ===== Scripts ===== -->
-  <script>
-    // Menu Toggle
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-    menuBtn.onclick = e => {
-      e.stopPropagation();
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    };
-    document.onclick = () => menu.style.display = "none";
+<!-- Content appears when scrolling -->
+<section class="shop-call">
+  Shop Now & Browse Collection
+</section>
 
-    // Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    document.querySelectorAll(".gallery img").forEach(img => {
-      img.onclick = () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex";
-      };
-    });
-    lightbox.onclick = () => lightbox.style.display = "none";
-  </script>
+<div class="gallery">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+</div>
+
+<section class="social-cta">
+  <a href="#">Instagram</a>
+  <a href="#">Visit Shop</a>
+</section>
+
+<footer>© Yamatai 2026</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.onclick = e => {
+  e.stopPropagation();
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+};
+document.onclick = () => menu.style.display = "none";
+</script>
+
 </body>
 </html>
