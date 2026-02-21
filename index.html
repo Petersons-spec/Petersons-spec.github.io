@@ -61,31 +61,32 @@ h1.title {
   border-bottom: 2px solid #d4af37;
 }
 
-/* ===== HERO LAYOUT ===== */
+/* ===== HERO (above fold) ===== */
 .hero-wrapper {
   display: flex;
-  gap: 20px;
-  padding: 20px 40px;
   max-width: 1200px;
-  margin: 0 auto;
-  align-items: stretch;
+  margin: 20px auto 0 auto;
+  gap: 20px;
   height: calc(100vh - 220px); /* full viewport minus banner */
+  padding: 0 20px;
+  align-items: stretch;
+  box-sizing: border-box;
 }
 
-/* Large Image: slightly smaller */
+/* Large Image */
 .hero-main {
-  flex: 2; /* smaller than before */
+  flex: 2;
 }
 
 .hero-main img {
   width: 100%;
   height: 100%;
   border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   object-fit: cover;
 }
 
-/* Right Column Images */
+/* Right column images */
 .hero-side {
   flex: 1;
   display: flex;
@@ -94,10 +95,10 @@ h1.title {
 }
 
 .hero-side img {
-  flex: 1; /* equal height for alignment */
+  flex: 1;
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
   object-fit: cover;
 }
 
@@ -145,27 +146,31 @@ footer {
     font-size: 18px;
   }
 
+  /* stack images under large image but still above fold */
   .hero-wrapper {
     flex-direction: column;
-    height: auto; /* let it grow */
-    padding: 20px;
+    height: calc(100vh - 220px);
+    padding: 0 15px;
+    justify-content: space-between;
   }
 
   .hero-main {
     width: 100%;
-    height: 50vh;
-    margin-bottom: 15px;
+    height: 50%;
+    margin-bottom: 10px;
   }
 
   .hero-side {
-    flex-direction: column; 
+    flex-direction: column;
     width: 100%;
-    gap: 15px;
+    height: 50%;
+    gap: 10px;
   }
 
   .hero-side img {
     width: 100%;
     height: auto;
+    flex: 1;
   }
 
   .shop-call {
@@ -191,7 +196,7 @@ footer {
   </nav>
 </section>
 
-<!-- Hero Images: first 4 pictures -->
+<!-- Hero Images (above fold) -->
 <section class="hero-wrapper">
 
   <!-- Large Image -->
