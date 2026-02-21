@@ -13,10 +13,10 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner ===== */
+/* ===== Banner (Smaller on Desktop) ===== */
 .banner {
-  min-height: 220px;
-  padding: 20px;
+  min-height: 160px;
+  padding: 15px 20px 10px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
     radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
@@ -25,9 +25,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
+/* Logo */
 .title-link {
   text-decoration: none;
   color: black;
@@ -35,23 +35,23 @@ body {
 
 h1.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 72px;
+  font-size: 58px; /* smaller */
   margin: 0;
 }
 
+/* Navigation */
 .nav-links {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
-  gap: 60px;
-  justify-content: center;
+  gap: 50px;
 }
 
 .nav-links a {
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 3px;
   text-decoration: none;
   color: #222;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   transition: all 0.3s ease;
 }
@@ -61,48 +61,48 @@ h1.title {
   border-bottom: 2px solid #d4af37;
 }
 
-/* ===== HERO (above fold) ===== */
+/* ===== HERO (4 Images Above Fold) ===== */
 .hero-wrapper {
   display: flex;
-  max-width: 1200px;
-  margin: 20px auto 0 auto;
-  gap: 20px;
-  height: calc(100vh - 220px); /* full viewport minus banner */
+  max-width: 1100px;
+  margin: 15px auto 0 auto;
+  gap: 18px;
+  height: calc(100vh - 160px); /* matches banner */
   padding: 0 20px;
-  align-items: stretch;
+  align-items: center;
   box-sizing: border-box;
 }
 
 /* Large Image */
 .hero-main {
-  flex: 2;
+  flex: 1.6; /* reduced dominance */
 }
 
 .hero-main img {
   width: 100%;
   height: 100%;
-  border-radius: 16px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.16);
   object-fit: cover;
 }
 
-/* Right column images */
+/* Right-side Images */
 .hero-side {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: space-between;
 }
 
 .hero-side img {
-  flex: 1;
+  height: calc((100% - 20px) / 3); /* perfect alignment */
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
   object-fit: cover;
 }
 
-/* ===== CONTENT BELOW HERO ===== */
+/* ===== BELOW FOLD CONTENT ===== */
 .shop-call {
   text-align: center;
   margin: 60px 0 20px;
@@ -134,8 +134,9 @@ footer {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
+
   h1.title {
-    font-size: 56px;
+    font-size: 50px;
   }
 
   .nav-links {
@@ -143,15 +144,12 @@ footer {
   }
 
   .nav-links a {
-    font-size: 18px;
+    font-size: 17px;
   }
 
-  /* stack images under large image but still above fold */
   .hero-wrapper {
     flex-direction: column;
-    height: calc(100vh - 220px);
-    padding: 0 15px;
-    justify-content: space-between;
+    height: calc(100vh - 160px);
   }
 
   .hero-main {
@@ -161,14 +159,11 @@ footer {
   }
 
   .hero-side {
-    flex-direction: column;
     width: 100%;
     height: 50%;
-    gap: 10px;
   }
 
   .hero-side img {
-    width: 100%;
     height: auto;
     flex: 1;
   }
@@ -196,36 +191,32 @@ footer {
   </nav>
 </section>
 
-<!-- Hero Images (above fold) -->
+<!-- 4 Images (Above the Fold) -->
 <section class="hero-wrapper">
 
-  <!-- Large Image -->
   <div class="hero-main">
-    <img src="red.jpg" alt="Large Image">
+    <img src="red.jpg" alt="">
   </div>
 
-  <!-- Right Column: 3 smaller images -->
   <div class="hero-side">
-    <img src="1.jpg" alt="Small Image 1">
-    <img src="2.jpg" alt="Small Image 2">
-    <img src="3.jpg" alt="Small Image 3">
+    <img src="1.jpg" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
   </div>
 
 </section>
 
-<!-- Shop Call -->
+<!-- Scroll Content -->
 <section class="shop-call">
   Shop Now & Browse Collection
 </section>
 
-<!-- Gallery -->
 <div class="gallery">
   <img src="1.jpg">
   <img src="2.jpg">
   <img src="3.jpg">
 </div>
 
-<!-- Footer -->
 <footer>© Yamatai 2026</footer>
 
 </body>
