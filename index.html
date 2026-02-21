@@ -23,8 +23,8 @@ body {
     linear-gradient(135deg, #f7e6e6, #f1cfcf);
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -39,7 +39,6 @@ h1.title {
   margin: 0;
 }
 
-/* Navigation */
 .nav-links {
   margin-top: 20px;
   display: flex;
@@ -62,11 +61,18 @@ h1.title {
   border-bottom: 2px solid #d4af37;
 }
 
-/* ===== HERO LAYOUT ===== */
-.hero-wrapper {
+/* ===== HERO WRAPPER FRAME ===== */
+.hero-frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   display: flex;
   gap: 20px;
-  padding: 20px 40px;
+  height: calc(100vh - 240px); /* fits in viewport under banner */
 }
 
 /* Large Image */
@@ -76,13 +82,13 @@ h1.title {
 
 .hero-main img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
   object-fit: cover;
 }
 
-/* Right-side images */
+/* Right Column Images */
 .hero-side {
   flex: 1;
   display: flex;
@@ -91,46 +97,15 @@ h1.title {
 }
 
 .hero-side img {
+  flex: 1;
   width: 100%;
-  height: auto;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   object-fit: cover;
 }
 
-/* ===== Content ===== */
-.shop-call {
-  text-align: center;
-  margin: 60px 0 20px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-}
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
-
-.gallery img {
-  width: 280px;
-  border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
-  margin: 40px 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-}
-
-/* ===== MOBILE VERSION ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
   h1.title {
     font-size: 56px;
   }
@@ -143,32 +118,27 @@ footer {
     font-size: 18px;
   }
 
-  /* Stack everything vertically */
-  .hero-wrapper {
+  .hero-frame {
     flex-direction: column;
-    padding: 20px;
+    height: auto;
+    padding: 15px;
   }
 
   .hero-main {
     width: 100%;
-    height: auto;
+    height: 50vh;
+    margin-bottom: 15px;
   }
 
   .hero-side {
-    flex-direction: column; /* stack images vertically */
+    flex-direction: column;
     width: 100%;
-    margin-top: 15px;
     gap: 15px;
   }
 
   .hero-side img {
     width: 100%;
     height: auto;
-  }
-
-  .shop-call {
-    font-size: 32px;
-    padding: 0 20px;
   }
 }
 </style>
@@ -178,49 +148,39 @@ footer {
 
 <!-- Banner -->
 <section class="banner">
-
-  <!-- F&S = HOME -->
   <a href="index.html" class="title-link">
     <h1 class="title">F&amp;S</h1>
   </a>
 
-  <!-- Navigation -->
   <nav class="nav-links">
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-
 </section>
 
-<!-- Hero Images -->
-<section class="hero-wrapper">
+<!-- Hero Images in Frame -->
+<section class="hero-frame">
 
   <!-- Large Image -->
   <div class="hero-main">
-    <img src="red.jpg" alt="">
+    <img src="red.jpg" alt="Large Image">
   </div>
 
-  <!-- Right Column -->
+  <!-- Right Column Images -->
   <div class="hero-side">
-    <img src="1.jpg" alt="">
-    <img src="2.jpg" alt="">
-    <img src="3.jpg" alt="">
+    <img src="1.jpg" alt="Small Image 1">
+    <img src="2.jpg" alt="Small Image 2">
+    <img src="3.jpg" alt="Small Image 3">
   </div>
 
 </section>
 
-<section class="shop-call">
-  Shop Now & Browse Collection
+<!-- Additional content will be below, scrollable -->
+<section style="padding:40px; text-align:center;">
+  <h2>More Content Here</h2>
+  <p>Scroll down to see the rest of the gallery, shop, or other sections.</p>
 </section>
-
-<div class="gallery">
-  <img src="1.jpg">
-  <img src="2.jpg">
-  <img src="3.jpg">
-</div>
-
-<footer>© Yamatai 2026</footer>
 
 </body>
 </html>
