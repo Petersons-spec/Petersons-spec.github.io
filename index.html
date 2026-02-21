@@ -13,13 +13,13 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner ===== */
+/* ===== Banner (Smooth + Logo Accent) ===== */
 .banner {
-  min-height: 120px; 
-  padding: 10px 20px;
+  min-height: 110px;
+  padding: 8px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(212,175,55,0.15), transparent 55%),
     linear-gradient(135deg, #f7e6e6, #f1cfcf);
   display: flex;
   align-items: center;
@@ -28,13 +28,23 @@ body {
   box-sizing: border-box;
 }
 
-/* Logo centered horizontally */
+/* Logo centered horizontally with subtle accent */
 .title-link {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   text-decoration: none;
-  color: black;
+  color: #222;
+  background: rgba(255,255,255,0.35);
+  padding: 6px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.title-link:hover {
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
 }
 
 h1.title {
@@ -43,10 +53,10 @@ h1.title {
   margin: 0;
 }
 
-/* Navigation groups */
+/* Navigation groups closer to center */
 .nav-left, .nav-right {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   font-size: 18px;
   letter-spacing: 2px;
 }
@@ -70,7 +80,7 @@ h1.title {
   max-width: 1200px;
   margin: 15px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 110px);
   padding: 0 20px;
 }
 
@@ -86,7 +96,7 @@ h1.title {
   object-fit: cover;
 }
 
-/* Right grid */
+/* Right grid (3 images) */
 .hero-side {
   flex: 1;
   display: grid;
@@ -156,7 +166,7 @@ footer {
   }
 
   .nav-left, .nav-right {
-    gap: 25px;
+    gap: 20px;
     font-size: 16px;
   }
 
@@ -194,7 +204,6 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <section class="banner">
