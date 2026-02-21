@@ -68,12 +68,13 @@ h1.title {
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: stretch; /* all images same height */
+  align-items: stretch;
+  height: calc(100vh - 220px); /* full viewport minus banner */
 }
 
 /* Large Image: slightly smaller */
 .hero-main {
-  flex: 2; /* reduced from 3 to 2 */
+  flex: 2; /* smaller than before */
 }
 
 .hero-main img {
@@ -100,7 +101,7 @@ h1.title {
   object-fit: cover;
 }
 
-/* ===== Content ===== */
+/* ===== CONTENT BELOW HERO ===== */
 .shop-call {
   text-align: center;
   margin: 60px 0 20px;
@@ -146,17 +147,18 @@ footer {
 
   .hero-wrapper {
     flex-direction: column;
+    height: auto; /* let it grow */
     padding: 20px;
   }
 
   .hero-main {
     width: 100%;
-    height: auto;
+    height: 50vh;
     margin-bottom: 15px;
   }
 
   .hero-side {
-    flex-direction: column; /* stack images vertically under large image */
+    flex-direction: column; 
     width: 100%;
     gap: 15px;
   }
