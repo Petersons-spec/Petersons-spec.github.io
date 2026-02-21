@@ -13,10 +13,10 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner ===== */
+/* ===== Banner (Thinner + Centered Logo + Even Menu) ===== */
 .banner {
-  min-height: 160px;
-  padding: 15px 20px 10px;
+  min-height: 120px; /* thinner */
+  padding: 10px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
     radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
@@ -25,24 +25,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .title-link {
   text-decoration: none;
   color: black;
+  display: block;
 }
 
 h1.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 58px;
+  font-size: 50px; /* slightly smaller for thin banner */
   margin: 0;
 }
 
 /* Navigation */
 .nav-links {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
-  gap: 50px;
+  justify-content: center; /* center menu */
+  gap: 80px; /* more spacing between links */
 }
 
 .nav-links a {
@@ -66,7 +69,7 @@ h1.title {
   max-width: 1200px;
   margin: 15px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 120px); /* match smaller banner */
   padding: 0 20px;
   align-items: stretch;
 }
@@ -93,7 +96,7 @@ h1.title {
 }
 
 .hero-side img {
-  height: calc((100% - 24px) / 4); /* evenly divide height with gaps */
+  height: calc((100% - 24px) / 4);
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.12);
@@ -134,7 +137,7 @@ footer {
 @media (max-width: 768px) {
 
   h1.title {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .nav-links {
@@ -196,14 +199,14 @@ footer {
 
 <section class="hero-wrapper">
   <div class="hero-main">
-    <img src="red.jpg" alt="Large Image">
+    <img src="red.jpg" alt="">
   </div>
 
   <div class="hero-side">
-    <img src="1.jpg" alt="Small Image 1">
-    <img src="2.jpg" alt="Small Image 2">
-    <img src="3.jpg" alt="Small Image 3">
-    <img src="4.jpg" alt="Small Image 4">
+    <img src="1.jpg" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+    <img src="4.jpg" alt="">
   </div>
 </section>
 
