@@ -13,9 +13,9 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner (Logo color accent, menu at bottom) ===== */
+/* ===== Banner ===== */
 .banner {
-  min-height: 130px;
+  min-height: 140px;
   padding: 10px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
@@ -29,7 +29,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Logo with color accent (gold gradient) */
+/* Logo with golden gradient accent */
 .title-link {
   text-decoration: none;
   display: block;
@@ -37,28 +37,23 @@ body {
 
 h1.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 50px;
+  font-size: 72px; /* increased for desktop visibility */
   margin: 0;
   background: linear-gradient(45deg, #d4af37, #f0e68c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Navigation at bottom, centered, closer together */
-.nav-left, .nav-right {
-  display: flex;
-  gap: 25px;
-}
-
+/* Navigation at bottom of banner, centered */
 .nav {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .nav a {
-  font-size: 18px;
+  font-size: 22px; /* increased for visibility */
   letter-spacing: 2px;
   text-decoration: none;
   color: #222;
@@ -78,10 +73,11 @@ h1.title {
   max-width: 1200px;
   margin: 15px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 140px);
   padding: 0 20px;
 }
 
+/* Large image */
 .hero-main {
   flex: 2;
 }
@@ -94,7 +90,7 @@ h1.title {
   object-fit: cover;
 }
 
-/* Right grid (3 images) */
+/* Right images (desktop: top big + 2 small bottom) */
 .hero-side {
   flex: 1;
   display: grid;
@@ -160,11 +156,13 @@ footer {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   h1.title {
-    font-size: 45px;
+    font-size: 55px; /* larger for mobile */
   }
 
   .nav {
     gap: 25px;
+    font-size: 18px;
+    margin-top: 10px;
   }
 
   .hero-wrapper {
@@ -178,14 +176,10 @@ footer {
     height: 42vh;
   }
 
-  .hero-main img {
-    height: 100%;
-  }
-
   .hero-side {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* stacked under large image */
     gap: 12px;
   }
 
