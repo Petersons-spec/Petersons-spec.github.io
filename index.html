@@ -15,23 +15,26 @@ body {
 
 /* ===== Banner ===== */
 .banner {
-  min-height: 120px;
+  min-height: 120px; 
   padding: 10px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
     radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
     linear-gradient(135deg, #f7e6e6, #f1cfcf);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
 }
 
+/* Logo centered horizontally */
 .title-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: none;
   color: black;
-  display: block;
 }
 
 h1.title {
@@ -40,16 +43,15 @@ h1.title {
   margin: 0;
 }
 
-.nav-links {
-  margin-top: 10px;
+/* Navigation groups */
+.nav-left, .nav-right {
   display: flex;
-  justify-content: center;
-  gap: 80px;
+  gap: 40px;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
-.nav-links a {
-  font-size: 18px;
-  letter-spacing: 3px;
+.nav-left a, .nav-right a {
   text-decoration: none;
   color: #222;
   padding-bottom: 4px;
@@ -57,7 +59,7 @@ h1.title {
   transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-left a:hover, .nav-right a:hover {
   color: #d4af37;
   border-bottom: 2px solid #d4af37;
 }
@@ -95,7 +97,7 @@ h1.title {
 }
 
 .hero-side img:nth-child(1) {
-  grid-column: 1 / 3; /* top image spans 2 columns */
+  grid-column: 1 / 3;
   grid-row: 1;
 }
 
@@ -153,12 +155,9 @@ footer {
     font-size: 45px;
   }
 
-  .nav-links {
+  .nav-left, .nav-right {
     gap: 25px;
-  }
-
-  .nav-links a {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .hero-wrapper {
@@ -195,18 +194,23 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <section class="banner">
+  <div class="nav-left">
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About Us</a>
+  </div>
+
   <a href="index.html" class="title-link">
     <h1 class="title">F&amp;S</h1>
   </a>
 
-  <nav class="nav-links">
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
+  <div class="nav-right">
+    <a href="account.html">Account</a>
     <a href="contact.html">Contact</a>
-  </nav>
+  </div>
 </section>
 
 <section class="hero-wrapper">
