@@ -100,6 +100,36 @@ h1.title {
   object-fit: cover;
 }
 
+/* ===== Content ===== */
+.shop-call {
+  text-align: center;
+  margin: 60px 0 20px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 280px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   h1.title {
@@ -134,6 +164,11 @@ h1.title {
   .hero-side img {
     width: 100%;
     height: auto;
+  }
+
+  .shop-call {
+    font-size: 32px;
+    padding: 0 20px;
   }
 }
 </style>
@@ -170,6 +205,21 @@ h1.title {
   </div>
 
 </section>
+
+<!-- Shop Call -->
+<section class="shop-call">
+  Shop Now & Browse Collection
+</section>
+
+<!-- Gallery -->
+<div class="gallery">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+</div>
+
+<!-- Footer -->
+<footer>© Yamatai 2026</footer>
 
 </body>
 </html>
