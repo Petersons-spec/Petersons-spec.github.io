@@ -23,8 +23,8 @@ body {
     linear-gradient(135deg, #f7e6e6, #f1cfcf);
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -39,7 +39,6 @@ h1.title {
   margin: 0;
 }
 
-/* Navigation */
 .nav-links {
   margin-top: 20px;
   display: flex;
@@ -67,6 +66,8 @@ h1.title {
   display: flex;
   gap: 20px;
   padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Large Image */
@@ -98,39 +99,8 @@ h1.title {
   object-fit: cover;
 }
 
-/* ===== Content ===== */
-.shop-call {
-  text-align: center;
-  margin: 60px 0 20px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-}
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
-
-.gallery img {
-  width: 280px;
-  border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
-  margin: 40px 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-}
-
-/* ===== MOBILE VERSION ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
   h1.title {
     font-size: 56px;
   }
@@ -155,7 +125,7 @@ footer {
   }
 
   .hero-side {
-    flex-direction: column; /* stack images vertically */
+    flex-direction: column; /* stack images vertically under large image */
     width: 100%;
     margin-top: 15px;
     gap: 15px;
@@ -165,11 +135,6 @@ footer {
     width: 100%;
     height: auto;
   }
-
-  .shop-call {
-    font-size: 32px;
-    padding: 0 20px;
-  }
 }
 </style>
 </head>
@@ -178,49 +143,33 @@ footer {
 
 <!-- Banner -->
 <section class="banner">
-
-  <!-- F&S = HOME -->
   <a href="index.html" class="title-link">
     <h1 class="title">F&amp;S</h1>
   </a>
 
-  <!-- Navigation -->
   <nav class="nav-links">
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-
 </section>
 
-<!-- Hero Images -->
+<!-- Hero Images: first 4 pictures -->
 <section class="hero-wrapper">
 
   <!-- Large Image -->
   <div class="hero-main">
-    <img src="red.jpg" alt="">
+    <img src="red.jpg" alt="Large Image">
   </div>
 
-  <!-- Right Column -->
+  <!-- Right Column: 3 smaller images -->
   <div class="hero-side">
-    <img src="1.jpg" alt="">
-    <img src="2.jpg" alt="">
-    <img src="3.jpg" alt="">
+    <img src="1.jpg" alt="Small Image 1">
+    <img src="2.jpg" alt="Small Image 2">
+    <img src="3.jpg" alt="Small Image 3">
   </div>
 
 </section>
-
-<section class="shop-call">
-  Shop Now & Browse Collection
-</section>
-
-<div class="gallery">
-  <img src="1.jpg">
-  <img src="2.jpg">
-  <img src="3.jpg">
-</div>
-
-<footer>© Yamatai 2026</footer>
 
 </body>
 </html>
