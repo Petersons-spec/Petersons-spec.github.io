@@ -13,55 +13,57 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Stylish Navbar with bottom links ===== */
+/* ===== Stylish Navbar ===== */
 .banner {
   position: sticky;
   top: 0;
   z-index: 999;
-  height: 140px; /* taller for logo + nav */
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px); /* glass effect */
+  height: 120px; /* taller for logo + nav buttons */
+  background: rgba(255,255,255,0.9); /* glassy look */
+  backdrop-filter: blur(12px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   display: flex;
-  flex-direction: column; /* stack logo + nav */
+  justify-content: center; /* center logo horizontally */
   align-items: center;
-  justify-content: center;
-  padding: 10px 40px;
+  padding: 0 40px;
   border-bottom: 1px solid rgba(212,175,55,0.2);
-  transition: all 0.3s ease;
+  position: relative;
 }
 
 /* Center Logo */
 .title-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-decoration: none;
-  margin-bottom: 10px; /* spacing between logo and nav */
 }
 
 h1.title {
   font-family: 'Great Vibes', cursive;
   font-size: 70px;
   margin: 0;
-  color: #111; /* black logo */
+  color: #111;
   text-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 h1.title:hover {
   transform: scale(1.05);
-  color: #d4af37; /* gold accent on hover */
+  color: #d4af37;
 }
 
-/* Navigation links at bottom of navbar */
+/* Navigation links at the bottom sides */
 .nav-left, .nav-right {
+  position: absolute;
+  bottom: 12px; /* aligned at bottom of navbar */
   display: flex;
   gap: 28px;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
 }
 
-.nav-left { order: 1; } /* keep left links first */
-.nav-right { order: 2; } /* right links next */
+.nav-left { left: 40px; }
+.nav-right { right: 40px; }
+
 .nav-left a, .nav-right a {
   font-size: 18px;
   letter-spacing: 2px;
@@ -86,7 +88,7 @@ h1.title:hover {
 }
 
 .nav-left a:hover::after, .nav-right a:hover::after {
-  width: 100%; /* underline slides in */
+  width: 100%; /* sliding underline */
 }
 
 .nav-left a:hover, .nav-right a:hover {
@@ -101,7 +103,7 @@ h1.title:hover {
   max-width: 1200px;
   margin: 10px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 120px);
   padding: 0 20px;
 }
 
@@ -183,7 +185,7 @@ footer {
 @media (max-width: 768px) {
   .banner { height: auto; padding: 14px 20px; }
   h1.title { font-size: 52px; }
-  .nav-left, .nav-right { flex-wrap: wrap; justify-content: center; margin: 6px 0; }
+  .nav-left, .nav-right { position: static; transform: none; justify-content: center; margin: 6px 0; }
   .hero-wrapper { flex-direction: column; height: auto; gap: 10px; }
   .hero-main { height: 42vh; }
   .hero-side { grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr; height: 16vh; }
