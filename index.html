@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>F&S Homepage</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
 <style>
 body {
   margin: 0;
@@ -13,10 +5,10 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner ===== */
+/* ===== Banner (thinner & cleaner) ===== */
 .banner {
-  min-height: 140px;
-  padding: 10px 20px;
+  min-height: 120px;            /* reduced height */
+  padding: 6px 20px;            /* less vertical space */
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
     radial-gradient(circle at bottom right, rgba(212,175,55,0.15), transparent 55%),
@@ -25,11 +17,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   box-sizing: border-box;
 }
 
-/* Logo with golden gradient accent */
+/* Logo */
 .title-link {
   text-decoration: none;
   display: block;
@@ -37,23 +28,23 @@ body {
 
 h1.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 72px; /* increased for desktop visibility */
+  font-size: 72px;
   margin: 0;
   background: linear-gradient(45deg, #d4af37, #f0e68c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Navigation at bottom of banner, centered */
+/* Navigation */
 .nav {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 15px;
+  margin-top: 10px;  /* closer to logo */
 }
 
 .nav a {
-  font-size: 22px; /* increased for visibility */
+  font-size: 22px;
   letter-spacing: 2px;
   text-decoration: none;
   color: #222;
@@ -67,13 +58,13 @@ h1.title {
   border-bottom: 2px solid #d4af37;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (pulled higher) ===== */
 .hero-wrapper {
   display: flex;
   max-width: 1200px;
-  margin: 15px auto 0 auto;
+  margin: 5px auto 0 auto;      /* was 15px → tighter */
   gap: 18px;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 120px);  /* matches thinner banner */
   padding: 0 20px;
 }
 
@@ -88,9 +79,10 @@ h1.title {
   border-radius: 14px;
   box-shadow: 0 10px 22px rgba(0,0,0,0.16);
   object-fit: cover;
+  object-position: center top;  /* better alignment */
 }
 
-/* Right images (desktop: top big + 2 small bottom) */
+/* Right images grid */
 .hero-side {
   flex: 1;
   display: grid;
@@ -121,6 +113,7 @@ h1.title {
   border-radius: 10px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.12);
   object-fit: cover;
+  object-position: center top;
 }
 
 /* ===== BELOW FOLD ===== */
@@ -156,13 +149,16 @@ footer {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   h1.title {
-    font-size: 55px; /* larger for mobile */
+    font-size: 52px;
   }
 
   .nav {
     gap: 25px;
+    margin-top: 6px;
+  }
+
+  .nav a {
     font-size: 18px;
-    margin-top: 10px;
   }
 
   .hero-wrapper {
@@ -173,66 +169,19 @@ footer {
 
   .hero-main {
     width: 100%;
-    height: 42vh;
+    height: 40vh;
   }
 
   .hero-side {
     width: 100%;
     display: flex;
-    flex-direction: column; /* stacked under large image */
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .hero-side img {
     width: 100%;
-    height: 18vh;
-  }
-
-  .shop-call {
-    font-size: 30px;
-    padding: 0 20px;
+    height: 16vh;
   }
 }
 </style>
-</head>
-<body>
-
-<section class="banner">
-  <a href="index.html" class="title-link">
-    <h1 class="title">F&amp;S</h1>
-  </a>
-
-  <div class="nav">
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About Us</a>
-    <a href="account.html">Account</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</section>
-
-<section class="hero-wrapper">
-  <div class="hero-main">
-    <img src="red.jpg" alt="Large Image">
-  </div>
-
-  <div class="hero-side">
-    <img src="1.jpg" alt="Top Image">
-    <img src="2.jpg" alt="Bottom Left">
-    <img src="3.jpg" alt="Bottom Right">
-  </div>
-</section>
-
-<section class="shop-call">
-  Shop Now & Browse Collection
-</section>
-
-<div class="gallery">
-  <img src="1.jpg">
-  <img src="2.jpg">
-  <img src="3.jpg">
-</div>
-
-<footer>© Yamatai 2026</footer>
-
-</body>
-</html>
