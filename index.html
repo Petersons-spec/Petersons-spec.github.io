@@ -13,59 +13,65 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Modern Navbar ===== */
+/* ===== Stylish Navbar with bottom links ===== */
 .banner {
   position: sticky;
   top: 0;
   z-index: 999;
-  height: 105px;
-  background: rgba(255,255,255,0.9); /* slightly transparent */
-  backdrop-filter: blur(10px); /* glassy blur */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  height: 140px; /* taller for logo + nav */
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px); /* glass effect */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   display: flex;
+  flex-direction: column; /* stack logo + nav */
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
-  border-bottom: 1px solid rgba(212,175,55,0.15);
+  padding: 10px 40px;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
   transition: all 0.3s ease;
 }
 
-/* Logo styling */
-.title-link h1.title {
+/* Center Logo */
+.title-link {
+  text-decoration: none;
+  margin-bottom: 10px; /* spacing between logo and nav */
+}
+
+h1.title {
   font-family: 'Great Vibes', cursive;
   font-size: 70px;
   margin: 0;
   color: #111; /* black logo */
-  text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.title-link h1.title:hover {
+h1.title:hover {
   transform: scale(1.05);
   color: #d4af37; /* gold accent on hover */
 }
 
-/* Menu buttons on the sides */
+/* Navigation links at bottom of navbar */
 .nav-left, .nav-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   gap: 28px;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
 }
 
-.nav-left { left: 40px; }
-.nav-right { right: 40px; }
-
+.nav-left { order: 1; } /* keep left links first */
+.nav-right { order: 2; } /* right links next */
 .nav-left a, .nav-right a {
   font-size: 18px;
   letter-spacing: 2px;
   text-decoration: none;
   color: #222;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: all 0.35s ease;
+  padding: 6px 12px;
+  border-radius: 8px;
   position: relative;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(212,175,55,0.1), transparent);
 }
 
 .nav-left a::after, .nav-right a::after {
@@ -80,12 +86,13 @@ body {
 }
 
 .nav-left a:hover::after, .nav-right a:hover::after {
-  width: 100%; /* sliding underline */
+  width: 100%; /* underline slides in */
 }
 
 .nav-left a:hover, .nav-right a:hover {
   color: #d4af37;
-  background: rgba(212,175,55,0.08); /* subtle highlight */
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+  box-shadow: 0 4px 12px rgba(212,175,55,0.2);
 }
 
 /* ===== HERO ===== */
@@ -94,7 +101,7 @@ body {
   max-width: 1200px;
   margin: 10px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 105px);
+  height: calc(100vh - 140px);
   padding: 0 20px;
 }
 
@@ -176,7 +183,7 @@ footer {
 @media (max-width: 768px) {
   .banner { height: auto; padding: 14px 20px; }
   h1.title { font-size: 52px; }
-  .nav-left, .nav-right { position: static; transform: none; justify-content: center; margin: 6px 0; }
+  .nav-left, .nav-right { flex-wrap: wrap; justify-content: center; margin: 6px 0; }
   .hero-wrapper { flex-direction: column; height: auto; gap: 10px; }
   .hero-main { height: 42vh; }
   .hero-side { grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr; height: 16vh; }
@@ -197,14 +204,14 @@ footer {
 <body>
 
 <section class="banner">
+  <a href="index.html" class="title-link">
+    <h1 class="title">F&amp;S</h1>
+  </a>
+
   <div class="nav-left">
     <a href="gallery.html">Collection</a>
     <a href="about.html">About Us</a>
   </div>
-
-  <a href="index.html" class="title-link">
-    <h1 class="title">F&amp;S</h1>
-  </a>
 
   <div class="nav-right">
     <a href="account.html">Account</a>
