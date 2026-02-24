@@ -13,57 +13,79 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner ===== */
+/* ===== Modern Navbar ===== */
 .banner {
   position: sticky;
   top: 0;
   z-index: 999;
-  height: 120px; /* taller to fit logo + nav */
-  background:
-    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.7), transparent 60%),
-    radial-gradient(circle at 80% 100%, rgba(212,175,55,0.18), transparent 60%),
-    linear-gradient(135deg, #f8eaea, #f2d6d6);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  height: 105px;
+  background: rgba(255,255,255,0.9); /* slightly transparent */
+  backdrop-filter: blur(10px); /* glassy blur */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   display: flex;
-  flex-direction: column; /* stack logo and nav */
   align-items: center;
-  justify-content: flex-start;
-  padding: 10px 40px;
+  justify-content: center;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  transition: all 0.3s ease;
 }
 
-/* Center Logo */
-.title-link {
-  text-decoration: none;
-}
-
-h1.title {
+/* Logo styling */
+.title-link h1.title {
   font-family: 'Great Vibes', cursive;
   font-size: 70px;
   margin: 0;
   color: #111; /* black logo */
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.2); /* subtle shadow for cool effect */
+  text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Menu buttons at bottom of navbar */
+.title-link h1.title:hover {
+  transform: scale(1.05);
+  color: #d4af37; /* gold accent on hover */
+}
+
+/* Menu buttons on the sides */
 .nav-left, .nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   gap: 28px;
-  margin-top: 8px; /* spacing below logo */
 }
+
+.nav-left { left: 40px; }
+.nav-right { right: 40px; }
 
 .nav-left a, .nav-right a {
   font-size: 18px;
   letter-spacing: 2px;
   text-decoration: none;
   color: #222;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
+  padding: 6px 8px;
+  border-radius: 6px;
   transition: all 0.35s ease;
+  position: relative;
+}
+
+.nav-left a::after, .nav-right a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.nav-left a:hover::after, .nav-right a:hover::after {
+  width: 100%; /* sliding underline */
 }
 
 .nav-left a:hover, .nav-right a:hover {
   color: #d4af37;
-  border-bottom: 2px solid #d4af37;
+  background: rgba(212,175,55,0.08); /* subtle highlight */
 }
 
 /* ===== HERO ===== */
@@ -72,7 +94,7 @@ h1.title {
   max-width: 1200px;
   margin: 10px auto 0 auto;
   gap: 18px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 105px);
   padding: 0 20px;
 }
 
@@ -154,7 +176,7 @@ footer {
 @media (max-width: 768px) {
   .banner { height: auto; padding: 14px 20px; }
   h1.title { font-size: 52px; }
-  .nav-left, .nav-right { flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+  .nav-left, .nav-right { position: static; transform: none; justify-content: center; margin: 6px 0; }
   .hero-wrapper { flex-direction: column; height: auto; gap: 10px; }
   .hero-main { height: 42vh; }
   .hero-side { grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr; height: 16vh; }
@@ -175,14 +197,14 @@ footer {
 <body>
 
 <section class="banner">
-  <a href="index.html" class="title-link">
-    <h1 class="title">F&amp;S</h1>
-  </a>
-
   <div class="nav-left">
     <a href="gallery.html">Collection</a>
     <a href="about.html">About Us</a>
   </div>
+
+  <a href="index.html" class="title-link">
+    <h1 class="title">F&amp;S</h1>
+  </a>
 
   <div class="nav-right">
     <a href="account.html">Account</a>
