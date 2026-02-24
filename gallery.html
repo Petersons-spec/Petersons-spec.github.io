@@ -16,27 +16,24 @@ body {
   color: #222;
 }
 
-/* ===== Premium Stylish Sticky Navbar ===== */
+/* ===== Sticky Flex Navbar ===== */
 .banner {
   position: sticky;
   top: 0;
   z-index: 999;
   height: 120px;
+  display: flex;
+  justify-content: space-between; /* left nav | logo | right nav */
+  align-items: center;
+  padding: 0 40px;
   background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
   backdrop-filter: blur(14px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.18);
   border-bottom: 1px solid rgba(212,175,55,0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.4s ease;
 }
 
 .title-link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative; /* now part of flex flow */
   text-decoration: none;
 }
 
@@ -56,14 +53,9 @@ h1.title:hover {
 }
 
 .nav-left, .nav-right {
-  position: absolute;
-  bottom: 12px;
   display: flex;
   gap: 28px;
 }
-
-.nav-left { left: 40px; }
-.nav-right { right: 40px; }
 
 .nav-left a, .nav-right a {
   font-size: 18px;
@@ -101,7 +93,7 @@ h1.title:hover {
   box-shadow: 0 6px 16px rgba(212,175,55,0.3);
 }
 
-/* ===== Header ===== */
+/* ===== Page Header ===== */
 .header {
   text-align: center;
   padding: 40px 20px 20px;
@@ -181,7 +173,7 @@ footer {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   h1.title { font-size: 52px; }
-  .nav-left, .nav-right { position: static; transform: none; justify-content: center; margin: 6px 0; }
+  .nav-left, .nav-right { justify-content: center; gap: 16px; }
 }
 @media (max-width: 600px) {
   .header h1 { font-size: 46px; }
@@ -191,16 +183,16 @@ footer {
 
 <body>
 
-<!-- ===== Banner Navbar ===== -->
+<!-- ===== Sticky Navbar ===== -->
 <section class="banner">
-  <a href="index.html" class="title-link">
-    <h1 class="title">F&amp;S</h1>
-  </a>
-
   <div class="nav-left">
     <a href="gallery.html">Collection</a>
     <a href="about.html">About Us</a>
   </div>
+
+  <a href="index.html" class="title-link">
+    <h1 class="title">F&amp;S</h1>
+  </a>
 
   <div class="nav-right">
     <a href="account.html">Account</a>
