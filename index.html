@@ -13,24 +13,23 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Stylish Navbar ===== */
+/* ===== Premium Stylish Sticky Navbar ===== */
 .banner {
-  position: sticky;
+  position: sticky; /* sticky navbar */
   top: 0;
   z-index: 999;
-  height: 120px; /* taller for logo + nav buttons */
-  background: rgba(255,255,255,0.9); /* glassy look */
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  height: 120px; /* space for logo + nav buttons */
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
+  backdrop-filter: blur(14px); /* glassy look */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  border-bottom: 1px solid rgba(212,175,55,0.25);
   display: flex;
-  justify-content: center; /* center logo horizontally */
+  justify-content: center;
   align-items: center;
-  padding: 0 40px;
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-  position: relative;
+  transition: all 0.4s ease;
 }
 
-/* Center Logo */
+/* Centered Logo */
 .title-link {
   position: absolute;
   top: 50%;
@@ -41,22 +40,23 @@ body {
 
 h1.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 70px;
+  font-size: 72px;
   margin: 0;
   color: #111;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, color 0.3s ease;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 h1.title:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
   color: #d4af37;
+  text-shadow: 0 6px 20px rgba(212,175,55,0.5);
 }
 
-/* Navigation links at the bottom sides */
+/* Navigation Links on Sides at Bottom */
 .nav-left, .nav-right {
   position: absolute;
-  bottom: 12px; /* aligned at bottom of navbar */
+  bottom: 12px; /* aligned at bottom */
   display: flex;
   gap: 28px;
 }
@@ -69,32 +69,35 @@ h1.title:hover {
   letter-spacing: 2px;
   text-decoration: none;
   color: #222;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
   position: relative;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, rgba(212,175,55,0.1), transparent);
+  transition: all 0.35s ease;
+  background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.nav-left a::after, .nav-right a::after {
+.nav-left a::before, .nav-right a::before {
   content: '';
   position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #d4af37;
-  transition: width 0.3s ease;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(212,175,55,0.3), rgba(212,175,55,0));
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0.95) scaleY(0.9);
+  z-index: -1;
 }
 
-.nav-left a:hover::after, .nav-right a:hover::after {
-  width: 100%; /* sliding underline */
+.nav-left a:hover::before, .nav-right a:hover::before {
+  opacity: 1;
+  transform: scaleX(1) scaleY(1);
 }
 
 .nav-left a:hover, .nav-right a:hover {
   color: #d4af37;
   background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
-  box-shadow: 0 4px 12px rgba(212,175,55,0.2);
+  box-shadow: 0 6px 16px rgba(212,175,55,0.3);
 }
 
 /* ===== HERO ===== */
