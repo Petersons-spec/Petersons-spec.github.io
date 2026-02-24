@@ -16,77 +16,91 @@
       color: #2a2a2a;
     }
 
-    /* ===== Smaller Banner ===== */
+    /* ===== Premium Stylish Sticky Navbar ===== */
     .banner {
-      min-height: 14vh;
-      padding: 18px 15px 10px;
+      position: sticky; /* sticky navbar */
+      top: 0;
+      z-index: 999;
+      height: 120px; /* space for logo + nav buttons */
+      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
+      backdrop-filter: blur(14px); /* glassy look */
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(212,175,55,0.25), transparent 55%),
-        linear-gradient(135deg, #f7e6e6, #f1cfcf);
+      transition: all 0.4s ease;
     }
 
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(32px, 8vw, 48px);
-      margin: 0;
-    }
-
-    .subtitle {
-      letter-spacing: 2px;
-      font-size: 11px;
-      margin-top: 2px;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    /* ===== Menu ===== */
-    #menu-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    #menuBtn {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      letter-spacing: 2px;
-      padding: 12px 20px;
-      background: rgba(255,255,255,0.9);
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    #menu {
+    /* Centered Logo */
+    .title-link {
       position: absolute;
-      top: 120%;
-      right: 0;
-      background: rgba(255,255,255,0.96);
-      padding: 12px 18px;
-      border-radius: 12px;
-      display: none;
-      width: 180px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    #menu a {
-      display: block;
-      padding: 10px 0;
-      font-size: 16px;
-      color: #222;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-decoration: none;
     }
 
-    #menu a:hover {
+    h1.title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 72px;
+      margin: 0;
+      color: #111;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    h1.title:hover {
+      transform: scale(1.07);
       color: #d4af37;
+      text-shadow: 0 6px 20px rgba(212,175,55,0.5);
+    }
+
+    /* Navigation Links on Sides at Bottom */
+    .nav-left, .nav-right {
+      position: absolute;
+      bottom: 12px; /* aligned at bottom */
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-left { left: 40px; }
+    .nav-right { right: 40px; }
+
+    .nav-left a, .nav-right a {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 10px;
+      position: relative;
+      transition: all 0.35s ease;
+      background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left a::before, .nav-right a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      background: linear-gradient(45deg, rgba(212,175,55,0.3), rgba(212,175,55,0));
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: scaleX(0.95) scaleY(0.9);
+      z-index: -1;
+    }
+
+    .nav-left a:hover::before, .nav-right a:hover::before {
+      opacity: 1;
+      transform: scaleX(1) scaleY(1);
+    }
+
+    .nav-left a:hover, .nav-right a:hover {
+      color: #d4af37;
+      background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+      box-shadow: 0 6px 16px rgba(212,175,55,0.3);
     }
 
     /* ===== About Section (fixed sizing) ===== */
@@ -146,24 +160,23 @@
 
 <body>
 
-  <!-- Banner -->
+  <!-- Navbar -->
   <section class="banner">
-    <h1 class="title">F&S</h1>
-    <div class="subtitle">Our Story</div>
-  </section>
+    <a href="index.html" class="title-link">
+      <h1 class="title">F&amp;S</h1>
+    </a>
 
-  <!-- Menu -->
-  <div id="menu-container">
-    <button id="menuBtn">☰ MENU</button>
-
-    <nav id="menu">
+    <div class="nav-left">
       <a href="index.html">Home</a>
-      <a href="#">Shop now</a>
+      <a href="#">Shop Now</a>
       <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="nav-right">
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+    </div>
+  </section>
 
   <!-- About Content -->
   <section class="about-wrapper">
@@ -193,20 +206,6 @@
   </section>
 
   <footer>© Yamatai 2026</footer>
-
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const menu = document.getElementById("menu");
-
-  menuBtn.addEventListener("click", function(e) {
-    e.stopPropagation();
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  });
-
-  document.addEventListener("click", function() {
-    menu.style.display = "none";
-  });
-</script>
 
 </body>
 </html>
