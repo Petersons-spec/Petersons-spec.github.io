@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account – F&S</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
+  color: #222;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ===== Premium Stylish Sticky Navbar (homepage exact) ===== */
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  height: 120px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  border-bottom: 1px solid rgba(212,175,55,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+/* Centered Logo */
+.title-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+}
+
+h1.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  margin: 0;
+  color: #111;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h1.title:hover {
+  transform: scale(1.07);
+  color: #d4af37;
+  text-shadow: 0 6px 20px rgba(212,175,55,0.5);
+}
+
+/* Navigation Links on Sides at Bottom */
+.nav-left, .nav-right {
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-left { left: 40px; }
+.nav-right { right: 40px; }
+
+.nav-left a, .nav-right a {
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #222;
+  padding: 8px 14px;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.35s ease;
+  background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.nav-left a::before, .nav-right a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(212,175,55,0.3), rgba(212,175,55,0));
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0.95) scaleY(0.9);
+  z-index: -1;
+}
+
+.nav-left a:hover::before, .nav-right a:hover::before {
+  opacity: 1;
+  transform: scaleX(1) scaleY(1);
+}
+
+.nav-left a:hover, .nav-right a:hover {
+  color: #d4af37;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+  box-shadow: 0 6px 16px rgba(212,175,55,0.3);
+}
+
+/* ===== Account Page Content ===== */
+.account-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.account-wrapper h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.account-wrapper p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+footer {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  h1.title { font-size: 52px; }
+  .nav-left, .nav-right { position: static; transform: none; justify-content: center; margin: 6px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar (homepage exact style) -->
+<section class="banner">
+  <div class="nav-left">
+    <a href="gallery.html">Collection</a>
+    <a href="about.html">About Us</a>
+  </div>
+
+  <a href="index.html" class="title-link">
+    <h1 class="title">F&amp;S</h1>
+  </a>
+
+  <div class="nav-right">
+    <a href="account.html">Account</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</section>
+
+<!-- Account Content -->
+<section class="account-wrapper">
+  <h2>My Account</h2>
+  <p>Welcome back! Here you can manage your orders, update your details, and view your favourites.</p>
+  <p><em>Account functionality coming soon...</em></p>
+</section>
+
+<footer>© Yamatai 2026</footer>
+
+</body>
+</html>
