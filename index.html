@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>F&S Homepage</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
@@ -5,10 +13,10 @@ body {
   background: linear-gradient(135deg, #f7e6e6, #f4d1d1);
 }
 
-/* ===== Banner (thinner & cleaner) ===== */
+/* ===== Banner (thinner & centered) ===== */
 .banner {
-  min-height: 120px;            /* reduced height */
-  padding: 6px 20px;            /* less vertical space */
+  min-height: 120px;
+  padding: 6px 20px;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
     radial-gradient(circle at bottom right, rgba(212,175,55,0.15), transparent 55%),
@@ -17,13 +25,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 }
 
 /* Logo */
 .title-link {
   text-decoration: none;
-  display: block;
 }
 
 h1.title {
@@ -40,7 +46,7 @@ h1.title {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 10px;  /* closer to logo */
+  margin-top: 10px;
 }
 
 .nav a {
@@ -58,13 +64,13 @@ h1.title {
   border-bottom: 2px solid #d4af37;
 }
 
-/* ===== HERO (pulled higher) ===== */
+/* ===== HERO ===== */
 .hero-wrapper {
   display: flex;
   max-width: 1200px;
-  margin: 5px auto 0 auto;      /* was 15px → tighter */
+  margin: 5px auto 0 auto; /* pulled higher */
   gap: 18px;
-  height: calc(100vh - 120px);  /* matches thinner banner */
+  height: calc(100vh - 120px);
   padding: 0 20px;
 }
 
@@ -79,7 +85,7 @@ h1.title {
   border-radius: 14px;
   box-shadow: 0 10px 22px rgba(0,0,0,0.16);
   object-fit: cover;
-  object-position: center top;  /* better alignment */
+  object-position: center top;
 }
 
 /* Right images grid */
@@ -185,3 +191,46 @@ footer {
   }
 }
 </style>
+</head>
+
+<body>
+
+<section class="banner">
+  <a href="index.html" class="title-link">
+    <h1 class="title">F&amp;S</h1>
+  </a>
+
+  <div class="nav">
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About Us</a>
+    <a href="account.html">Account</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</section>
+
+<section class="hero-wrapper">
+  <div class="hero-main">
+    <img src="red.jpg" alt="Large Image">
+  </div>
+
+  <div class="hero-side">
+    <img src="1.jpg" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+  </div>
+</section>
+
+<section class="shop-call">
+  Shop Now & Browse Collection
+</section>
+
+<div class="gallery">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+</div>
+
+<footer>© Yamatai 2026</footer>
+
+</body>
+</html>
