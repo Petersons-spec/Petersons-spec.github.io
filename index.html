@@ -103,10 +103,8 @@ h1.title:hover {
 
 /* ===== HERO ===== */
 .hero-wrapper {
-  display: flex;
   max-width: 1200px;
   margin: 10px auto 0 auto;
-  gap: 18px;
   height: calc(100vh - 120px);
   padding: 0 20px;
 }
@@ -125,14 +123,6 @@ h1.title:hover {
 }
 
 .hero-main img:hover { transform: scale(1.03); }
-
-.hero-side {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.2fr 1fr;
-  gap: 12px;
-}
 
 .hero-side img:nth-child(1) { grid-column: 1 / 3; }
 
@@ -227,13 +217,7 @@ footer {
 <!-- HERO SECTION -->
 <section class="hero-wrapper">
   <div class="hero-main">
-    <img src="red.jpg" alt="Large Image">
-  </div>
-
-  <div class="hero-side">
-    <img src="1.jpg" alt="Top Image">
-    <img src="2.jpg" alt="Bottom Left">
-    <img src="3.jpg" alt="Bottom Right">
+    <img src="red.jpg" alt="Hero Image">
   </div>
 </section>
 
