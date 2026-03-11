@@ -40,30 +40,31 @@ body {
 /* Logo + tagline wrapper */
 .logo-wrapper {
   text-align: center;
+  line-height: 1; /* reduces vertical spacing between logo and tagline */
 }
 
 .logo {
   font-family: 'Great Vibes', cursive;
-  font-size: 60px;
+  font-size: 48px; /* slightly smaller to fit navbar */
   margin: 0;
   color: #111;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: 0.3s;
 }
 
 .logo:hover {
-  transform: scale(1.07);
+  transform: scale(1.05);
   color: #d4af37;
-  text-shadow: 0 6px 20px rgba(212,175,55,0.5);
+  text-shadow: 0 5px 16px rgba(212,175,55,0.5);
 }
 
 .tagline {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 12px; /* smaller tagline font */
   color: #555;
-  margin-top: 4px;
+  margin-top: 2px; /* very close to the logo */
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Navbar links */
