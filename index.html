@@ -29,18 +29,15 @@ body {
   align-items: center;
 }
 
-/* Flex container for nav and logo */
-.nav-container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  box-sizing: border-box;
+/* Logo + tagline */
+.title-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-decoration: none;
 }
 
-/* Logo + tagline */
 .logo-wrapper {
   text-align: center;
   line-height: 1;
@@ -72,9 +69,14 @@ body {
 
 /* Nav links */
 .nav-left, .nav-right {
+  position: absolute;
+  bottom: 20px;
   display: flex;
   gap: 28px;
 }
+
+.nav-left { left: 40px; }
+.nav-right { right: 40px; }
 
 .nav-left a, .nav-right a {
   font-size: 18px;
@@ -242,23 +244,21 @@ footer {
 <body>
 
 <section class="banner">
-  <div class="nav-container">
-    <div class="nav-left">
-      <a href="gallery.html">Collection</a>
-      <a href="about.html">About Us</a>
+  <a href="index.html" class="title-link">
+    <div class="logo-wrapper">
+      <h1 class="logo">F&S</h1>
+      <div class="tagline">Keep it close</div>
     </div>
+  </a>
 
-    <a href="index.html" class="title-link">
-      <div class="logo-wrapper">
-        <h1 class="logo">F&S</h1>
-        <div class="tagline">Keep it close</div>
-      </div>
-    </a>
+  <div class="nav-left">
+    <a href="gallery.html">Collection</a>
+    <a href="about.html">About Us</a>
+  </div>
 
-    <div class="nav-right">
-      <a href="account.html">Account</a>
-      <a href="contact.html">Contact</a>
-    </div>
+  <div class="nav-right">
+    <a href="account.html">Account</a>
+    <a href="contact.html">Contact</a>
   </div>
 </section>
 
