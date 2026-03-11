@@ -29,23 +29,26 @@ body {
   align-items: center;
 }
 
-.title-link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-decoration: none;
+/* Flex container for nav and logo */
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
-/* Logo + tagline wrapper */
+/* Logo + tagline */
 .logo-wrapper {
   text-align: center;
-  line-height: 1; /* reduces vertical spacing between logo and tagline */
+  line-height: 1;
 }
 
 .logo {
   font-family: 'Great Vibes', cursive;
-  font-size: 48px; /* slightly smaller to fit navbar */
+  font-size: 48px;
   margin: 0;
   color: #111;
   text-shadow: 0 4px 12px rgba(0,0,0,0.25);
@@ -60,23 +63,18 @@ body {
 
 .tagline {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px; /* smaller tagline font */
+  font-size: 12px;
   color: #555;
-  margin-top: 2px; /* very close to the logo */
+  margin-top: 2px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Navbar links */
+/* Nav links */
 .nav-left, .nav-right {
-  position: absolute;
-  bottom: 20px;
   display: flex;
   gap: 28px;
 }
-
-.nav-left { left: 40px; }
-.nav-right { right: 40px; }
 
 .nav-left a, .nav-right a {
   font-size: 18px;
@@ -238,31 +236,30 @@ footer {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
-
 </style>
 </head>
 
 <body>
 
 <section class="banner">
-
-  <a href="index.html" class="title-link">
-    <div class="logo-wrapper">
-      <h1 class="logo">F&S</h1>
-      <div class="tagline">Keep it close</div>
+  <div class="nav-container">
+    <div class="nav-left">
+      <a href="gallery.html">Collection</a>
+      <a href="about.html">About Us</a>
     </div>
-  </a>
 
-  <div class="nav-left">
-    <a href="gallery.html">Collection</a>
-    <a href="about.html">About Us</a>
+    <a href="index.html" class="title-link">
+      <div class="logo-wrapper">
+        <h1 class="logo">F&S</h1>
+        <div class="tagline">Keep it close</div>
+      </div>
+    </a>
+
+    <div class="nav-right">
+      <a href="account.html">Account</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-
-  <div class="nav-right">
-    <a href="account.html">Account</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
 </section>
 
 <!-- HERO -->
