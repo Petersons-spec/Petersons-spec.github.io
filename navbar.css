@@ -67,20 +67,40 @@ h1.title:hover {
   box-shadow: 0 6px 16px rgba(212,175,55,0.3);
 }
 
-/* Mobile */
+/* ===== Mobile Responsive ===== */
+
 @media (max-width: 768px) {
+
   .banner {
+    flex-direction: column;
     height: auto;
-    padding: 14px 20px;
+    padding: 18px 12px;
+    gap: 8px;
+  }
+
+  /* Reset absolute positioning for mobile */
+  .title-link {
+    position: static;
+    transform: none;
   }
 
   h1.title {
-    font-size: 52px;
+    font-size: 48px;
   }
 
-  .nav-left, .nav-right {
+  .nav-left,
+  .nav-right {
     position: static;
+    display: flex;
     justify-content: center;
-    margin: 6px 0;
+    gap: 16px;
+    flex-wrap: wrap;
   }
+
+  .nav-left a,
+  .nav-right a {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+
 }
