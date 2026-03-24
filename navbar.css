@@ -1,124 +1,144 @@
 /* ===== Premium Stylish Sticky Navbar ===== */
 
 .banner {
-position: sticky;
-top: 0;
-z-index: 999;
-height: 120px;
-background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
-backdrop-filter: blur(14px);
-box-shadow: 0 8px 30px rgba(0,0,0,0.18);
-border-bottom: 1px solid rgba(212,175,55,0.25);
-display: flex;
-justify-content: center;
-align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    height: 120px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,240,235,0.85));
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    border-bottom: 1px solid rgba(212,175,55,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease; /* smooth feel */
 }
 
 /* ===== Logo Wrapper ===== */
 
 .title-link {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
 }
 
-.logo-wrapper{
-text-align:center;
+.logo-wrapper {
+    text-align: center;
 }
 
 .logo {
-font-family: 'Great Vibes', cursive;
-font-size: 72px;
-margin: 0;
-color: #111;
-text-shadow: 0 5px 15px rgba(0,0,0,0.25);
-transition: 0.3s ease;
+    font-family: 'Great Vibes', cursive;
+    font-size: 72px;
+    margin: 0;
+    color: #111;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
 }
 
 .logo:hover {
-transform: scale(1.07);
-color: #d4af37;
-text-shadow: 0 6px 20px rgba(212,175,55,0.5);
+    transform: scale(1.07);
+    color: #d4af37;
+    text-shadow: 0 6px 20px rgba(212,175,55,0.5);
 }
 
-.tagline{
-font-size:14px;
-letter-spacing:3px;
-margin-top:-6px;
-opacity:0.7;
+.tagline {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-top: -6px;
+    opacity: 0.7;
 }
 
 /* ===== Nav Links ===== */
 
 .nav-left, .nav-right {
-position: absolute;
-bottom: 12px;
-display: flex;
-gap: 28px;
+    position: absolute;
+    bottom: 12px;
+    display: flex;
+    gap: 28px;
 }
 
 .nav-left { left: 40px; }
 .nav-right { right: 40px; }
 
 .nav-left a, .nav-right a {
-font-size: 18px;
-letter-spacing: 2px;
-text-decoration: none;
-color: #222;
-padding: 8px 14px;
-border-radius: 10px;
-transition: all 0.35s ease;
-background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent);
-box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #222;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.35s ease;
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), transparent);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+/* Hover + tap feedback */
 .nav-left a:hover,
 .nav-right a:hover {
-color: #d4af37;
-box-shadow: 0 6px 16px rgba(212,175,55,0.3);
+    color: #d4af37;
+    box-shadow: 0 6px 16px rgba(212,175,55,0.3);
+}
+
+.nav-left a:active,
+.nav-right a:active {
+    transform: scale(0.96);
 }
 
 /* ===== Mobile Responsive ===== */
 
 @media (max-width: 768px) {
 
-.banner {
-flex-direction: column;
-height: auto;
-padding: 18px 12px;
-gap: 10px;
-}
+    .banner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 16px 10px;
+        gap: 12px;
+    }
 
-/* center logo */
-.title-link {
-position: static;
-transform: none;
-}
+    /* Center logo naturally */
+    .title-link {
+        position: static;
+        transform: none;
+    }
 
-.logo {
-font-size: 48px;
-}
+    .logo {
+        font-size: 42px;
+    }
 
-.tagline{
-font-size:12px;
-}
+    .tagline {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
 
-/* navigation layout */
-.nav-left,
-.nav-right {
-position: static;
-display: flex;
-justify-content: center;
-gap: 16px;
-flex-wrap: wrap;
-}
+    /* Stack navigation cleanly */
+    .nav-left,
+    .nav-right {
+        position: static;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
 
-.nav-left a,
-.nav-right a {
-font-size: 16px;
-padding: 6px 10px;
-}
+    .nav-left {
+        margin-top: 6px;
+    }
 
+    .nav-right {
+        margin-top: 2px;
+    }
+
+    /* Better tap targets */
+    .nav-left a,
+    .nav-right a {
+        font-size: 15px;
+        padding: 10px 14px;
+        border-radius: 8px;
+    }
 }
