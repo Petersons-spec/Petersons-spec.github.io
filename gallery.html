@@ -96,6 +96,22 @@ footer {
 @media (max-width: 600px) {
   .header h1 { font-size: 46px; }
 }
+
+button {
+  margin: 8px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #444;
+}
+  
 </style>
 </head>
 
@@ -117,15 +133,15 @@ fetch('navbar.html')
   <p>Moments • Details • Atmosphere</p>
 </section>
 
+<!-- Gallery Controls -->
+<div style="text-align:center; margin-top:20px;">
+  <button onclick="loadGallery('moments')">Moments</button>
+  <button onclick="loadGallery('details')">Details</button>
+  <button onclick="loadGallery('atmosphere')">Atmosphere</button>
+</div>
+
 <!-- Gallery -->
-<section class="gallery">
-  <img src="1.jpg" alt="">
-  <img src="2.jpg" alt="">
-  <img src="3.jpg" alt="">
-  <img src="4.jpg" alt="">
-  <img src="5.jpg" alt="">
-  <img src="6.jpg" alt="">
-</section>
+<section class="gallery" id="gallery"></section>
 
 <!-- Lightbox -->
 <div id="lightbox">
@@ -140,15 +156,39 @@ fetch('navbar.html')
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox.querySelector("img");
 
-document.querySelectorAll(".gallery img").forEach(img => {
-  img.onclick = () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  };
-});
+const gallery = document.getElementById("gallery");
 
+// ✅ ONLY ONE galleries object
+const galleries = {
+  moments: ["1.jpg", "2.jpg", "3.jpg"],
+  details: ["4.jpg", "5.jpg"],
+  atmosphere: ["6.jpg"]
+};
+
+// LOAD FUNCTION
+function loadGallery(type) {
+  gallery.innerHTML = "";
+
+  galleries[type].forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+
+    img.onclick = () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = src;
+    };
+
+    gallery.appendChild(img);
+  });
+}
+
+// DEFAULT LOAD
+loadGallery("moments");
+
+// LIGHTBOX CLOSE
 lightbox.onclick = () => lightbox.style.display = "none";
 </script>
 
 </body>
-</html>
+</html> so like this
