@@ -187,26 +187,41 @@ body {
 }
 
 /* ✅ FIXED IMAGE VISIBILITY */
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+
+  align-items: start;
+}
+
+/* FIX: force visibility + prevent old CSS override */
 .gallery img {
   width: 100%;
   height: auto;
   display: block;
 
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   cursor: pointer;
 
-  opacity: 1;
-  transform: none;
-
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* hover effect */
 .gallery img:hover {
   transform: scale(1.03);
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
-
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
