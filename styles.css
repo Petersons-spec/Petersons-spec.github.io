@@ -1,3 +1,4 @@
+
 /* ===== BODY ===== */
 body {
   margin: 0;
@@ -20,6 +21,7 @@ body {
   align-items: center;
 }
 
+/* ===== LOGO ===== */
 .title-link {
   position: absolute;
   top: 50%;
@@ -56,6 +58,7 @@ body {
   letter-spacing: 1px;
 }
 
+/* ===== NAV LINKS ===== */
 .nav-left, .nav-right {
   position: absolute;
   bottom: 20px;
@@ -83,7 +86,7 @@ body {
 /* ===== HERO ===== */
 .hero-wrapper {
   max-width: 1200px;
-  margin: 10px auto 0 auto;
+  margin: 10px auto 0;
   height: calc(100vh - 80px);
   padding: 0 20px;
 }
@@ -97,9 +100,9 @@ body {
 .hero-main img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 14px 30px rgba(0,0,0,0.16);
-  object-fit: cover;
   transition: transform 0.6s ease;
   filter: brightness(1.1) contrast(1.05);
 }
@@ -173,7 +176,7 @@ body {
   font-size: 40px;
 }
 
-/* ===== ✅ FIXED GALLERY ===== */
+/* ===== GALLERY ===== */
 .gallery {
   max-width: 1200px;
   margin: 0 auto;
@@ -186,21 +189,7 @@ body {
   align-items: start;
 }
 
-/* ✅ FIXED IMAGE VISIBILITY */
-
-.gallery {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-
-  align-items: start;
-}
-
-/* FIX: force visibility + prevent old CSS override */
+/* IMAGES */
 .gallery img {
   width: 100%;
   height: auto;
@@ -217,11 +206,11 @@ body {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* hover effect */
 .gallery img:hover {
   transform: scale(1.03);
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
