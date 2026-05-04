@@ -219,3 +219,10 @@ footer {
   letter-spacing: 2px;
   opacity: 0.6;
 }
+
+.gallery img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: block !important;
+}
