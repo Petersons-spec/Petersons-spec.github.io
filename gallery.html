@@ -5,17 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F&S Gallery</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Main CSS -->
 <link rel="stylesheet" href="styles.css">
 
 <style>
 /* ===== Page Header ===== */
 .header {
   text-align: center;
-  padding: 140px 20px 20px; /* top padding increased for navbar space */
+  padding: 140px 20px 20px;
 }
 
 .header h1 {
@@ -31,14 +29,17 @@
   text-transform: uppercase;
 }
 
-/* ===== Gallery Grid ===== */
+/* ===== UPDATED GALLERY GRID ===== */
 .gallery {
   max-width: 1200px;
-  margin: auto;
-  padding: 30px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 }
 
 .gallery img {
@@ -89,14 +90,6 @@ footer {
   opacity: 0.6;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  h1.title { font-size: 52px; }
-}
-@media (max-width: 600px) {
-  .header h1 { font-size: 46px; }
-}
-
 button {
   margin: 8px;
   padding: 10px 18px;
@@ -111,34 +104,24 @@ button {
 button:hover {
   background: #444;
 }
-  
 </style>
 </head>
 
 <body>
 
-<!-- Navbar Include -->
+<!-- Navbar -->
 <div id="navbar-placeholder"></div>
 <script>
 fetch('navbar.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('navbar-placeholder').innerHTML = data;
-  });
+  .then(r => r.text())
+  .then(d => document.getElementById('navbar-placeholder').innerHTML = d);
 </script>
 
-<!-- Page Header -->
+<!-- Header -->
 <section class="header">
   <h1>Gallery</h1>
   <p>Moments • Details • Atmosphere</p>
 </section>
-
-<!-- Gallery Controls -->
-<div style="text-align:center; margin-top:20px;">
-  <button onclick="loadGallery('moments')">Moments</button>
-  <button onclick="loadGallery('details')">Details</button>
-  <button onclick="loadGallery('atmosphere')">Atmosphere</button>
-</div>
 
 <!-- Gallery -->
 <section class="gallery" id="gallery"></section>
@@ -153,23 +136,25 @@ fetch('navbar.html')
 </footer>
 
 <script>
+const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox.querySelector("img");
 
-const gallery = document.getElementById("gallery");
+/* ✅ ALL IMAGES FROM /images/ */
+const images = [
+  "/images/1.jpg",
+  "/images/2.jpg",
+  "/images/3.jpg",
+  "/images/4.jpg",
+  "/images/5.jpg",
+  "/images/6.jpg"
+];
 
-// ✅ ONLY ONE galleries object
-const galleries = {
-  moments: ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg"],
-  details: ["/images/4.jpg", "/images/5.jpg"],
-  atmosphere: ["/images/6.jpg"]
-};
-
-// LOAD FUNCTION
-function loadGallery(type) {
+/* 🚀 LOAD GALLERY */
+function loadGallery() {
   gallery.innerHTML = "";
 
-  galleries[type].forEach(src => {
+  images.forEach(src => {
     const img = document.createElement("img");
     img.src = src;
     img.loading = "lazy";
@@ -183,12 +168,14 @@ function loadGallery(type) {
   });
 }
 
-// DEFAULT LOAD
-loadGallery("moments");
+/* INIT */
+loadGallery();
 
-// LIGHTBOX CLOSE
-lightbox.onclick = () => lightbox.style.display = "none";
+/* CLOSE LIGHTBOX */
+lightbox.onclick = () => {
+  lightbox.style.display = "none";
+};
 </script>
 
 </body>
-</html> so like this
+</html>
