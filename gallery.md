@@ -2,7 +2,7 @@
 layout: gallery
 title: My Picture Gallery
 images:
-  - /images/pic1.jpg
-  - /images/pic2.jpg
-  - /images/pic3.jpg
+  - /images/white1.jpg
+  - /images/white2.jpg
+  - /images/white3.jpg
 ---
